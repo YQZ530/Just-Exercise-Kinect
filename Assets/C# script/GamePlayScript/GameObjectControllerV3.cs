@@ -26,7 +26,8 @@ public class GameObjectControllerV3 : MonoBehaviour
     public string levelPath = "/MCMC_Result/";
     public string levelName = "default";
     [Header("Observation")]
-   
+    //public float distance;
+    //public float speed;
     public int currentLevelIndex = 0;
     public bool next = true;
     public GameState currentGameState;
@@ -62,7 +63,7 @@ public class GameObjectControllerV3 : MonoBehaviour
 
         if (currentGameState == GameState.start || currentGameState == GameState.transition)
         {
-       
+           // UserStudyRecorderScript.RecordChunkStartFrame();
             if (!currentLevel[currentCounter].activeSelf) {
                 currentLevel[currentCounter].SetActive(true);
                 leftSidecurrentLevel[currentCounter].SetActive(true);
@@ -102,32 +103,33 @@ public class GameObjectControllerV3 : MonoBehaviour
                 if (next2Counter > 0) leftSidecurrentLevel[next2Counter].transform.position = Vector3.Lerp(waittingPoint2L.position, waittingPointL.position, currentTime / slerpTime);
 
             }
-            comparisonScript.RecordCurrentMotion();
+          //  comparisonScript.RecordCurrentMotion();
 
         }
 
         //this chunk duration is end and game is not end;
         if (currentTime > slerpTime && (currentGameState !=GameState.stop) )
         {
-            
+            flare.Play();
             //calculate score 
             float score = 0f;
-            //calculate  score
+            //calculate teh score
             if (currentCounter < currentLevel.Count)
             {
-                score = comparisonScript.Compare(levelIndexArray[currentCounter]);
-                //score = Random.Range(60f, 100f);
+                //score = comparisonScript.Compare(levelIndexArray[currentCounter]);
+                score = Random.Range(60f, 100f);
                 comparisonScript.UpdateScore(score);
             }
 
             if(score ==0f) //if user does not do that action, the game object stop
             {
                 next = false;
-
+               // UserStudyRecorderScript.RecordChunkStartFrame(); //reset the chunk start frame
+              
             }
             else
             {
-                flare.Play();
+                
                 next = true;
                 currentLevel[currentCounter].GetComponent<AutoDestroy>().DestoryMe();
                 currentLevel[currentCounter].SetActive(false); //destory current gameobject;
@@ -135,7 +137,7 @@ public class GameObjectControllerV3 : MonoBehaviour
                 leftSidecurrentLevel[currentCounter].GetComponent<AutoDestroy>().DestoryMe();
                 leftSidecurrentLevel[currentCounter].SetActive(false); //destory current gameobject;
 
-            
+                //UserStudyRecorderScript.RecordChunkEndFrame();
                 if (currentCounter == levelIndexArray.Length-1)
                 {
                     //print("last one" + currentCounter);
@@ -143,7 +145,7 @@ public class GameObjectControllerV3 : MonoBehaviour
                     
                 }
                 
-                comparisonScript.clearMotionFrame();
+                //comparisonScript.clearMotionFrame();
                 IncrementCounters(); //move avatar object
             }
             currentTime = 0;

@@ -141,7 +141,7 @@ public class SkeletonComparison : MonoBehaviour {
 
             if (ispass) //if all the joint are within maxangledifferent
             {
-                //RecorderScript.RecordKeyFrame(i);
+                RecorderScript.RecordKeyFrame(i);
                 break;
             }
 
@@ -265,7 +265,7 @@ public class SkeletonComparison : MonoBehaviour {
        
         for (int i = 0; i < totalJoint; i++)
         {
-          //  print("joint " + i);
+            print("joint " + i);
             if (scoringJoint[i] == 1f)
             {
                 float modelAngle = RotationCostHelperforModel(i, model);

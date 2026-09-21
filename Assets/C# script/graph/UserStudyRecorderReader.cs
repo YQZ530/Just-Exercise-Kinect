@@ -134,7 +134,7 @@ public class UserStudyRecorderReader : MonoBehaviour
     public void OutputData()
     {
         IniFile outputfile = new IniFile();
-   
+    //    StreamWriter writer = new StreamWriter("Assets/SmallUserStudy/" + OutputfileName + levelName + ".txt", true);
         for (int i = 0; i < dataFrame.Count; i++)
         { //for all frames
             outputfile.Create_Section(i.ToString());
@@ -164,7 +164,6 @@ public class UserStudyRecorderReader : MonoBehaviour
         outputfile.Set_IntArray("endchunkkeyframe", endChunkKeyFrameCounter.ToArray());
 
         outputfile.SaveTo(Application.dataPath + "/UserStudy/" + OutputfileName + levelName+ ".ini");
-        clearData();
     }
 
     public void Record()
@@ -210,20 +209,6 @@ public class UserStudyRecorderReader : MonoBehaviour
 
     }
 
-    void clearData()
-    {
-        for (int i = 0; i < dataFrame.Count; i++)
-        { //for all frames
-
-            dataFrame[i].pos.Clear();
-            dataFrame[i].rot.Clear();
-            dataFrame[i].mrot.Clear();
-            dataFrame[i].kinectPos.Clear();
-          
-        }
-        dataFrame.Clear();
-        print("Finish clearing recording file");
-    }
     //List out all file path that need to read
     void GetFilePath()
     {
