@@ -323,7 +323,6 @@ GameObject:
   - component: {fileID: 4945069457023570}
   - component: {fileID: 95358565944028798}
   - component: {fileID: 114833074817509996}
-  - component: {fileID: 114478917356901080}
   m_Layer: 0
   m_Name: 8
   m_TagString: Untagged
@@ -1037,8 +1036,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1607483100520104}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.57, y: 1.56, z: 0}
-  m_LocalScale: {x: 1.1, y: 1.1, z: 1.1}
+  m_LocalPosition: {x: -3.99, y: 0.4, z: -2.52}
+  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
   m_Children:
   - {fileID: 4887339949093170}
   m_Father: {fileID: 0}
@@ -2206,22 +2205,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114478917356901080
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1607483100520104}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 221c75945fd359b4080308e0309db7b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rend: []
-  colorStart: {r: 0, g: 0, b: 0, a: 0}
-  colorEnd: {r: 0, g: 0, b: 0, a: 0}
-  duration: 3
-  startChanging: 0
 --- !u!114 &114833074817509996
 MonoBehaviour:
   m_ObjectHideFlags: 1

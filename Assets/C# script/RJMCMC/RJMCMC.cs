@@ -1,8 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//RJMCMC: this script can run multiple times RJMCMC
-//GO to reinitialization method and fill out the parameter
+
 public class RJMCMC : MonoBehaviour
 {
     enum Selection { Add, Remove, Modify };
@@ -70,9 +69,11 @@ public class RJMCMC : MonoBehaviour
 
     //output only
 
-   
+    //public RJMCMCController controller;
     public float[] defaultWeights = { 1f, 1f, 1f };
-   
+    //public float[] highDistWeight = { 1, 0.3f, 0.3f };
+    //public float[] highRotWeight = { 0.3f, 1, 0.3f };
+    //public float[] highcmWeight1 = { 0.3f, 0.3f, 1 };
     public int levelcounter = 0;
     // Use this for initialization
     void Start()
@@ -255,7 +256,7 @@ public class RJMCMC : MonoBehaviour
 
             //make temp drops faster
             temperature = ((float)Iteration / TargetIteration) * MaxTemperature + 0.001f;
-            if ((TargetIteration - Iteration) % 100 == 0)
+            if ((targetAdVar - Iteration) % 1000 == 0)
             {
                 curve.AddKey((1f - 1f * Iteration / TargetIteration), bestCost);
             }
@@ -269,135 +270,46 @@ public class RJMCMC : MonoBehaviour
         if (levelcounter == 0)
         {
 
-            levelFilename = "mcmcdefault";
-            helperScript.targetfile = "target";
+            levelFilename = "medianrot";
+            helperScript.targetfile = "medianrottarget";
             helperScript.LoadTargetsFile();
             StartRJMCMC();
-            helperScript.rotWeight = 1f;
-            helperScript.cmWeight = 1f;
-            adVarWeight = 0.5f;
-            DurationWeight = 1;
-            targetDuration = 30f;
-            print("begin  target");
+
+            print("begin median rot");
+           
+        }
+        else if (levelcounter == 1)
+        {
+            //enabled = true;
+            print("finish median rot" + Iteration);
+            levelFilename = "highrot";
+            helperScript.targetfile = "highrottarget";
+            helperScript.LoadTargetsFile();
+            StartRJMCMC();
+            print("begin high rot");
+        }
+        else if (levelcounter == 2)
+        {
+            //enabled = true;
+            print("finish high rot" + Iteration);
+            levelFilename = "mediancm";
+            helperScript.targetfile = "mediancmtarget";
+            helperScript.LoadTargetsFile();
+
+            print("start median cm");
+            StartRJMCMC();
+
 
         }
-        //if (levelcounter == 0)
-        //{
-
-        //    levelFilename = "test";
-        //    helperScript.targetfile = "medianrottarget";
-        //    helperScript.LoadTargetsFile();
-        //    StartRJMCMC();
-
-        //    print("begin median rot");
-
-        //}
-        //else if (levelcounter == 1)
-        //{
-        //    //enabled = true;
-        //    print("finish median rot" + Iteration);
-        //    levelFilename = "highrot";
-        //    helperScript.targetfile = "highrottarget";
-        //    helperScript.LoadTargetsFile();
-        //    StartRJMCMC();
-        //    print("begin high rot");
-        //}
-        //else if (levelcounter == 2)
-        //{
-        //    //enabled = true;
-        //    print("finish high rot" + Iteration);
-        //    levelFilename = "mediancm";
-        //    helperScript.targetfile = "mediancmtarget";
-        //    helperScript.LoadTargetsFile();
-
-        //    print("start median cm");
-        //    StartRJMCMC();
-
-
-        //}
-        //else if (levelcounter == 3)
-        //{
-        //    print("finish median cm" + Iteration);
-        //    levelFilename = "highcm";
-        //    helperScript.targetfile = "highcmtarget";
-        //    helperScript.LoadTargetsFile();
-        //    print("start high cm");
-        //    StartRJMCMC();
-        //}
-
-        //  if(levelcounter ==4)//gen upper importance joint
-        //{
-        //    print("finish cm" + Iteration + "begin" + begin);
-        //    levelFilename = "upper";
-        //    helperScript.targetfile = "uppertarget";
-        //    helperScript.LoadTargetsFile();
-
-        //    helperScript.rotWeight = 1;
-        //    helperScript.cmWeight = 1;
-        //    print("start generate upper");
-        //    StartRJMCMC();
-
-
-        //}
-        //else if(levelcounter ==5 ) 
-        //{
-        //    print("finish upper only" + Iteration + "begin" + begin);
-        //    levelFilename = "lower"; //output filename
-        //    helperScript.targetfile = "lowertarget";
-        //    helperScript.LoadTargetsFile();
-        //    print("start generate lower");
-        //    StartRJMCMC();
-        //}
-
-        // if (levelcounter == 5)
-        //{
-        //    print("finish lower only " + Iteration + "begin" + begin);
-        //    levelFilename = "shortduration";
-        //    helperScript.targetfile = "lsdurtarget";
-        //    helperScript.LoadTargetsFile();
-        //    //helperScript.distWeight = 0;
-        //    helperScript.rotWeight =2f;
-        //    helperScript.cmWeight =0.5f;
-        //    DurationWeight = 1f;
-        //    adVarWeight = 1f;
-        //    targetAdVar = 0f;
-        //    targetDuration =9;
-        //    Wi = 5;
-        //    print("start generate short duration");
-        //    StartRJMCMC();
-        //}
-        //else if (levelcounter == 6)
-        //{
-        //    print("finish short duration " + Iteration + "begin" + begin);
-        //    levelFilename = "longduration";
-        //    helperScript.targetfile = "lsdurtarget";
-        //    helperScript.LoadTargetsFile();
-        //    //helperScript.distWeight =0;
-        //    helperScript.rotWeight = 2f;
-        //    helperScript.cmWeight = 0.5f;
-        //    targetAdVar = 0f;
-        //    adVarWeight = 1f;
-        //    targetDuration = 16;
-        //    DurationWeight = 1f;
-        //    Wi = 7;
-        //    print("start generate long duration");
-        //    StartRJMCMC();
-        ////}
-        //if (levelcounter == 7)
-        //{
-        //    print("finish long duration " + Iteration + "begin" + begin);
-        //    helperScript.targetfile = "fixedtarget";
-        //    helperScript.LoadTargetsFile();
-
-        //    helperScript.rotWeight = 2f;
-        //    helperScript.cmWeight = 0.5f;
-        //    levelFilename = "fixedlevel";
-        //    fixedPartEnable = true;
-        //    fixedSequence = new int[] { 1, 9, 1, 9 };
-        //    targetDuration = 12;
-        //    print("start generate short duration");
-        //    StartRJMCMC();
-        //}
+        else if (levelcounter == 3)
+        {
+            print("finish median cm" + Iteration);
+            levelFilename = "highcm";
+            helperScript.targetfile = "highcmtarget";
+            helperScript.LoadTargetsFile();
+            print("start high cm");
+            StartRJMCMC();
+        }
         else
         {
             levelFilename = "extra";
@@ -407,14 +319,71 @@ public class RJMCMC : MonoBehaviour
             begin = false;
         }
 
-
-
-        
+        /*else if(levelcounter ==3)//gen upper importance joint
+        //{
+        //    print("finish cm" + Iteration + "begin" + begin);
+        //    levelFilename = "upper";
+        //    helperScript.targetfile = "upperonlytarget";
+        //    helperScript.LoadTargetsFile();
+        //    helperScript.distWeight = defaultWeights[0];
+        //    helperScript.rotWeight = defaultWeights[1];
+        //    helperScript.cmWeight = defaultWeights[2];
+        //    print("start generate upper");
+        //    StartRJMCMC();
+            
+            
+        //}
+        //else if(levelcounter ==4 ) 
+        //{
+        //    print("finish upper only" + Iteration + "begin" + begin);
+        //    levelFilename = "lower"; //output filename
+        //    helperScript.targetfile = "loweronlytarget";
+        //    helperScript.LoadTargetsFile();
+        //    print("start generate lower");
+        //    StartRJMCMC();
+        //}
+        //else if (levelcounter == 5)
+        //{
+        //    print("finish lower only " + Iteration + "begin" + begin);
+        //    levelFilename = "shortduration";
+        //    helperScript.targetfile = "lsdurtarget";
+        //    helperScript.LoadTargetsFile();
+        //    //helperScript.distWeight = 0;
+        //    //helperScript.rotWeight = defaultWeights[1];
+        //    //helperScript.cmWeight = defaultWeights[2];
+        //    targetDuration = 30;
+        //    print("start generate short duration");
+        //    StartRJMCMC();
+        //}
+        //else if(levelcounter == 6)
+        //{
+        //    print("finish short duration " + Iteration + "begin" + begin);
+        //    levelFilename = "longduration";
+        //    helperScript.targetfile = "lsdurtarget";
+        //    helperScript.LoadTargetsFile();
+        //    //helperScript.distWeight =0;
+        //    //helperScript.rotWeight = defaultWeights[1];
+        //    //helperScript.cmWeight = defaultWeights[2];
+        //    targetDuration = 72;
+        //    DurationWeight = 2;
+        //    print("start generate long duration");
+        //    StartRJMCMC();
+        //}
+        //else if (levelcounter == 7)
+        //{
+        //    print("finish long duration " + Iteration + "begin" + begin);
+        //    levelFilename = "fixted";
+        //    fixedPartEnable = true;
+        //    fixedSequence = new int[] { 4, 7, 4, 7, 4, 7 };
+        //    targetDuration = 72;
+        //    print("start generate short duration");
+        //    StartRJMCMC();
+        //}
         //else if (levelcounter == 8)
         //{
 
         //} 
-
+        */
 
 
     }

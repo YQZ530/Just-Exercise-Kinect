@@ -6804,7 +6804,7 @@ MonoBehaviour:
   defaultfilepath: /MCMC_Preset/biao/
   defaultLevelsize: 0
   levelfilepath: /MCMC_Result/biao/
-  easyLevel: bmedianrot
+  easyLevel: highdist
   mediumLevel: highrot
   hardLevel: highcm
   numPerRow: 23
@@ -10132,14 +10132,18 @@ MonoBehaviour:
   nDistJoint: 25
   nRotJoint: 25
   presetDataPath: /MCMC_Preset/biao/
+  targetDist: []
   targetRot: []
-  targetSumRot: 0
   targetCM: 0
   ImportantJointRot: []
+  ImportantJointDist: []
   numImportantJointRot: 0
+  numImportantJointDist: 0
+  distWeight: 1
   rotWeight: 1
   cmWeight: 1
   targetfile: btarget
+  DistTableName: QBdistance
   RotTableName: QBrotation
   cmTableName: QBcenter
 --- !u!114 &1272436407
@@ -10160,15 +10164,15 @@ MonoBehaviour:
   outputScript: {fileID: 0}
   bestCost: 0
   curCost: 0
-  TargetIteration: 200000
+  TargetIteration: 100000
   Iteration: 0
   MaxTemperature: 0.5
   begin: 0
-  Wi: 6
-  targetDuration: 80
-  targetAdVar: 0
-  adVarWeight: 0.5
-  DurationWeight: 1
+  Wi: 5
+  targetDuration: 72
+  targetAdVar: 0.1
+  adVarWeight: 0.3
+  DurationWeight: 0.8
   fixedPartEnable: 0
   fixedSequence: 0100000006000000010000000600000001000000
   levelFilename: biao/test
@@ -10239,6 +10243,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b5c1b1af17d97b4783c5e7771339485, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentLevel: 
+  currentLevelIndex: 
+  helperScript: {fileID: 0}
+  outputScript: {fileID: 0}
+  bestCost: 0
+  curCost: 0
+  TargetIteration: 100
+  Iteration: 0
+  MaxTemperature: 0.5
+  begin: 0
+  Wi: 5
+  targetDuration: 0
+  targetAdVar: 0
+  adVarWeight: 0.3
+  DurationWeight: 0.3
+  fixedPartEnable: 0
+  fixedSequence: 0100000006000000010000000600000001000000
+  levelFilename: test
+  currentLevelDistCost: 0
+  currentLevelRotCost: 0
+  currentLevelCMCost: 0
+  CurrentDur: 0
+  CurrentAdjVar: 0
+  CurrentDurCost: 0
+  CurrentAdjVarCost: 0
+  curve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  highDisteWight1:
+  - 1
+  - 0.3
+  - 0.3
+  highRoteWight1:
+  - 0.3
+  - 1
+  - 0.3
+  highcmWight1:
+  - 0.3
+  - 0.3
+  - 1
+  levelcounter: 0
 --- !u!1 &1274277679
 GameObject:
   m_ObjectHideFlags: 0
@@ -14856,38 +14904,63 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   filepath: /MCMC_Preset/biao/
-  LoadedFilename: btarget
-  OutputFilename: bhighcmtarget
+  filename: btarget
+  distWeight: 1
   rotWeight: 1
   cmWeight: 1
+  targetDist:
+  - 7.04406
+  - 7.17222
+  - 11.08954
+  - 13.19017
+  - 10.0976
+  - 14.44536
+  - 20.76786
+  - 23.08068
+  - 11.66724
+  - 16.84643
+  - 22.13854
+  - 23.8479
+  - 6.811707
+  - 4.768277
+  - 6.244332
+  - 6.564664
+  - 7.019299
+  - 6.297654
+  - 6.271089
+  - 6.307317
+  - 9.209295
+  - 23.08068
+  - 20.76786
+  - 23.8479
+  - 22.13854
   targetRot:
-  - 908.7705
-  - 1112.494
+  - 455.1627
+  - 1100.542
   - 0
   - 0
-  - 2011.844
-  - 317.7039
+  - 2224.175
+  - 332.503
   - 0
   - 0
-  - 2492.953
-  - 382.504
+  - 2486.947
+  - 326.5222
   - 0
   - 0
-  - 2089.476
-  - 1666.015
-  - 770.9225
+  - 936.3677
+  - 1076.222
+  - 606.711
   - 0
-  - 1836.344
-  - 1529.234
-  - 841.5016
-  - 0
-  - 0
-  - 0
+  - 1369.307
+  - 1319.764
+  - 517.2144
   - 0
   - 0
   - 0
-  targetSumRot: 15959.76
-  targetCM: 9.478767
+  - 0
+  - 0
+  - 0
+  targetCM: 152.9923
   ImportantJointRot:
   - 1
   - 1
@@ -14914,8 +14987,32 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  percentAngleIncrease: 0
-  percentCMIncrase: 0.4
+  ImportantJointDist:
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
 --- !u!114 &1632224124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14928,40 +15025,69 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   presetDataPath: /MCMC_Preset/biao/
+  nDistJoint: 25
   nRotJoint: 25
+  DistTableName: QBdistance
   RotTableName: QBrotation
   cmTableName: QBcenter
   defaultLevelFileName: biaoDefault
-  defaultLevelIndex: 000000000600000005000000060000000500000006000000050000000900000008000000090000000800000009000000080000000900000008000000010000000200000003000000040000000100000002000000030000000400000001000000020000000300000008000000040000000500000003000000
-  defaultLevelsize: 30
+  defaultLevelIndex: 00000000060000000500000006000000050000000600000005000000090000000a000000090000000a000000090000000a000000090000000a0000000100000002000000030000000400000001000000020000000300000004000000010000000200000003000000
+  defaultLevelsize: 26
+  jointDistSum:
+  - 7.0440598
+  - 7.17222
+  - 11.089537
+  - 13.1901655
+  - 10.097605
+  - 14.445365
+  - 20.767859
+  - 23.080679
+  - 11.66724
+  - 16.84643
+  - 22.138536
+  - 23.847902
+  - 6.8117065
+  - 4.768277
+  - 6.2443323
+  - 6.5646644
+  - 7.019299
+  - 6.2976537
+  - 6.271089
+  - 6.3073173
+  - 9.209295
+  - 23.080679
+  - 20.767859
+  - 23.847902
+  - 22.138536
+  jointDistTotalSum: 330.71622
   jointRotSum:
-  - 908.7705
-  - 1112.4937
+  - 455.16266
+  - 1100.5419
   - 0
   - 0
-  - 2011.8436
-  - 317.7039
+  - 2224.175
+  - 332.50296
   - 0
   - 0
-  - 2492.9531
-  - 382.50403
+  - 2486.9468
+  - 326.52222
   - 0
   - 0
-  - 2089.4758
-  - 1666.0153
-  - 770.9225
+  - 936.3677
+  - 1076.2217
+  - 606.711
   - 0
-  - 1836.3436
-  - 1529.2345
-  - 841.5016
-  - 0
-  - 0
-  - 0
+  - 1369.3073
+  - 1319.7639
+  - 517.21436
   - 0
   - 0
   - 0
-  rotSum: 15959.764
-  jointCMSum: 9.478767
+  - 0
+  - 0
+  - 0
+  jointRotTotalSum: 12751.4375
+  jointCMSum: 152.9923
   ImportantJointRot:
   - 1
   - 1
@@ -14988,6 +15114,32 @@ MonoBehaviour:
   - 0
   - 0
   - 0
+  ImportantJointDist:
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
   OutputTargetFileName: btarget
 --- !u!114 &1632224125
 MonoBehaviour:

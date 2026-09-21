@@ -27,7 +27,6 @@ public class SkeletonManKinectController : MonoBehaviour {
     public Texture2D heatmap;
     public SkeletonComparison skeletonScript;
     public GameObjectControllerV3 controllerScript;
-
     public AvatarCreationV2 modelScript;
     //public UserStudyRecorderReader RecorderScript;
     public List<float> score;
@@ -35,7 +34,6 @@ public class SkeletonManKinectController : MonoBehaviour {
     float sumdiff = 0f;
     private void Start()
     {
-        
         if(skeletonScript == null || controllerScript == null)
         {
             Debug.LogError("Script not assign");

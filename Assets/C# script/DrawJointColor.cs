@@ -70,13 +70,21 @@ public class DrawJointColor : MonoBehaviour
 
     private void Update()
     {
-       // Get_Color(givenValue); 
+        Get_Color(givenValue); 
     }
 
     //value 0-1
     public Color Get_Color(float value)
     {
-      
+        ////if is zero output gray color
+        //if (value == 0f) { outputColor = Color.grey;  }
+        //else
+        //{
+        //    int index = (int)(value * heatmapText.width - 1);
+        //    outputColor = heatmapText.GetPixel(index, 0);
+        //}
+        //return outputColor;
+
         int index = 0;
         if (value == 0f) {  index = 0; }
         else
@@ -161,16 +169,12 @@ public class DrawJointColor : MonoBehaviour
     }
     void ChangeJointColorHelper(int joint_i, float value)
     {
-        if(joint_i == 18|| joint_i == 14) { value = 0; }
-        float normalizeValue = value / (0.0000001f+maxValue[joint_i]);
-        //  print(normalizeValue);
-        // if (joint_i == 20) print(normalizeValue);
-       if(joint_i == 19|| joint_i ==20) { return; }
-        print(Get_Color(normalizeValue));
         
-        avatarScript.bones[joint_i].gameObject.GetComponent<MeshRenderer>().material.color = Color.green;
-         //avatarScript.bones[joint_i].gameObject.GetComponent<MeshRenderer>().sharedMaterial.color = Get_Color(normalizeValue);
-        avatarScript.bones[joint_i].gameObject.GetComponent<MeshRenderer>().material.color = Get_Color(normalizeValue);
+        float normalizeValue = value / (0.0000001f+maxValue[joint_i]);
+      //  print(normalizeValue);
+       // if (joint_i == 20) print(normalizeValue);
+         avatarScript.bones[joint_i].gameObject.GetComponent<MeshRenderer>().sharedMaterial.color = Get_Color(normalizeValue);
+        //avatarScript.bones[joint_i].gameObject.GetComponent<MeshRenderer>().material.color = Get_Color(normalizeValue);
     }
 
     void ReadFile()

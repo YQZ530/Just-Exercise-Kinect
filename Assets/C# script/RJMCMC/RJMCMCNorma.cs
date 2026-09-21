@@ -1,9 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//does not have target duration
-//stop when it reach number of continuous rejection
-public class RJMCMCNormal : MonoBehaviour {
+
+public class RJMCMCNorma : MonoBehaviour {
 
     enum Selection { Add, Remove, Modify };
     Selection curSelection = Selection.Add;
@@ -45,7 +44,7 @@ public class RJMCMCNormal : MonoBehaviour {
     [Header("UserInput")]
     public float targetDuration;
     public float targetAdVar;
-    public int rejectCounter, rejectTotal;
+
 
     [Header("Weight:  Adajacent, Duration")]
     public float adVarWeight = 0.3f;
@@ -66,7 +65,6 @@ public class RJMCMCNormal : MonoBehaviour {
     public float CurrentAdjVarCost = 0f;
     bool GameInitial = false;
 
-   
     public AnimationCurve curve;
 
     //output only
@@ -163,8 +161,7 @@ public class RJMCMCNormal : MonoBehaviour {
     //return true if it is ends
     void Optimization()
     {
-        //if (Iteration <= 0 && !GameInitial)
-        if ((rejectCounter >= rejectTotal) && !GameInitial)
+        if (Iteration <= 0 && !GameInitial)
         {
             begin = false;
             GameInitial = true;
@@ -179,10 +176,9 @@ public class RJMCMCNormal : MonoBehaviour {
 
         }
         else
-        {
-            //Iteration--;
-            Iteration++;
-            SelectMethod();
+        {  
+        Iteration--;
+        SelectMethod();
 
 
         //calculate the cur cost
@@ -202,21 +198,20 @@ public class RJMCMCNormal : MonoBehaviour {
         {
             if ((rnd < acceptance) && CheckFixedPartExist())
             {
-                    rejectCounter = 0;
-                    // Debug.Log("Accept "+currentLevel.Count );
-                    //  print("accept " + curSelection);
+                // Debug.Log("Accept "+currentLevel.Count );
+                //  print("accept " + curSelection);
 
-                    //
+                //
 
-                    bestCost = curCost;
+                bestCost = curCost;
                 bestValue = newValue;
                 bestLength = currentLevel.Count;
                 //   Debug.Log("Accept" + bestCost );
             }
             else
             {
-                //Debug.Log("Reject");
-                rejectCounter++;
+                Debug.Log("Reject");
+
                 Reverse();
 
                 // print("reverse " + s);
@@ -226,20 +221,20 @@ public class RJMCMCNormal : MonoBehaviour {
         {
             if ((rnd < acceptance))
             {
-                    // Debug.Log("Accept "+currentLevel.Count );
-                    //  print("accept " + curSelection);
+                // Debug.Log("Accept "+currentLevel.Count );
+                //  print("accept " + curSelection);
 
-                    //
-                    rejectCounter = 0;
-                    bestCost = curCost;
+                //
+
+                bestCost = curCost;
                 bestValue = newValue;
                 bestLength = currentLevel.Count;
                 //   Debug.Log("Accept" + bestCost );
             }
             else
             {
-                    // Debug.Log("Reject");
-                rejectCounter++;
+                // Debug.Log("Reject");
+
                 Reverse();
 
                 // print("reverse " + s);
@@ -249,16 +244,14 @@ public class RJMCMCNormal : MonoBehaviour {
 
 
         //make temp drops faster
-        //temperature = ((float)Iteration / TargetIteration) * MaxTemperature + 0.001f;
-        //if ((targetAdVar - Iteration) % 1000 == 0)
-        //{
-        //    curve.AddKey((1f - 1f * Iteration / TargetIteration), bestCost);
-        //}
-          temperature = ((0.67f * TargetIteration - (float)Iteration) / (TargetIteration * 0.67f)) * MaxTemperature + 0.001f;
-
-          temperature = Mathf.Max(temperature, 0.001f);
-
+        temperature = ((float)Iteration / TargetIteration) * MaxTemperature + 0.001f;
+        if ((targetAdVar - Iteration) % 1000 == 0)
+        {
+            curve.AddKey((1f - 1f * Iteration / TargetIteration), bestCost);
         }
+
+        
+    }
     }
 
 

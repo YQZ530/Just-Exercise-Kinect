@@ -14,6 +14,8 @@ public class QPoser : MonoBehaviour {
     public Transform left_upper,right_upper, left_hip,right_hip;
     public Transform[] mid_joints;
 
+	public bool enablePrint;
+
     //// Use this for initialization
     void Start()
     {
@@ -27,6 +29,10 @@ public class QPoser : MonoBehaviour {
     //输出文件
     void Output_File()
     {
+
+		if (!enablePrint)
+			return;
+
         string path = Application.dataPath + "/Quincy/data/";
         string buffPos = "";
         string buffRot = "";

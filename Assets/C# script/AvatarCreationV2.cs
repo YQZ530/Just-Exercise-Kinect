@@ -283,6 +283,7 @@ public class AvatarCreationV2 : MonoBehaviour
         writer.WriteLine();
         writer.Close();
     }
+
     void CalculateBonesRotation(int i, ref Vector4[] bonesrot)
     {
         int parent = (int)GetParentJoint((KinectInterop.JointType)i);
@@ -308,6 +309,7 @@ public class AvatarCreationV2 : MonoBehaviour
             ReadInputFile(reader, ref boneRotBuffer); //add all the position info to a chunk
         }
         reader.Close();
+
         ReMapBone(ref boneRotBuffer);
         ReMapBone(ref boneRotBuffer);
 
