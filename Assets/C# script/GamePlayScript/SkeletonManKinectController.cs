@@ -25,18 +25,17 @@ public class SkeletonManKinectController : MonoBehaviour {
 
     //For instance joint comparsion
     public Texture2D heatmap;
-    public SkeletonComparison skeletonScript;
-    public GameObjectControllerV3 controllerScript;
-
-    public AvatarCreationV2 modelScript;
-    //public UserStudyRecorderReader RecorderScript;
-    public List<float> score;
+    //public SkeletonComparison skeletonScript;
+    public GameObjectControllerV4 controllerScript;
+    //public AvatarCreationV2 modelScript;
+   
+ 
 
     float sumdiff = 0f;
+    float[] angleDiffArr;
     private void Start()
     {
-        
-        if(skeletonScript == null || controllerScript == null)
+        if(controllerScript == null)
         {
             Debug.LogError("Script not assign");
         }
@@ -44,6 +43,11 @@ public class SkeletonManKinectController : MonoBehaviour {
        
         CreateBones();
         CreateSkeletonLine();
+        angleDiffArr = new float[25];
+        for (int i = 0; i < 25; i++)
+        {
+            angleDiffArr[i] = 0f;
+        }
     }
     // Update is called once per frame
     void Update()
@@ -65,8 +69,9 @@ public class SkeletonManKinectController : MonoBehaviour {
         if (controllerScript.GameIsStart)
         {
             InstanceComparsion();
+           
         }
-      
+
         ReDrawSkeletonLine();
 
     }
@@ -129,9 +134,10 @@ public class SkeletonManKinectController : MonoBehaviour {
             lines[i].SetPosition(1, posJoint2);
 
 
-            Color c = Get_Color(sumdiff);
+            Color c = Get_Color(angleDiffArr[i]);
             c.a = 0.5f;
-            lines[i].GetComponent<Renderer>().material.SetColor("_TintColor",c );
+            bones[i].GetComponent<Renderer>().material.color = c;
+            //lines[i].GetComponent<Renderer>().material.SetColor("_TintColor",c );
         }
 
        ////make hip line is between hip and knee
@@ -148,13 +154,17 @@ public class SkeletonManKinectController : MonoBehaviour {
 
     void  InstanceComparsion()
     {
-        
-        modelScript = skeletonScript.modelScripts[controllerScript.currentLevelIndex];
-        skeletonScript.LoadImportantJoints(controllerScript.currentLevelIndex);
-       sumdiff = 0f;
-        bool ispass = skeletonScript.InstanceComparsion(ref modelScript.bones, ref bones,  ref sumdiff);
-        sumdiff /= 40f;
-      
+
+        //modelScript = skeletonScript.modelScripts[controllerScript.currentLevelIndex];
+        // skeletonScript.LoadImportantJoints(controllerScript.currentLevelIndex);
+        // sumdiff = 0f;
+        // skeletonScript.InstanceCompareHelper(ref controllerScript.currentLevelIndex, ref bones, ref sumdiff);
+        // 
+        //sumdiff /= 40f;
+        sumdiff = controllerScript.InstanceComparison();
+        controllerScript.InstanceArraryComparison(ref angleDiffArr);
+        sumdiff /= 0.1f;
+
     }
     public Color Get_Color(float value)
     {
@@ -162,6 +172,7 @@ public class SkeletonManKinectController : MonoBehaviour {
         else if(value >1f) { value = 0.99f; }
         int index = (int)(value * heatmap.width - 1);
         Color outputColor = heatmap.GetPixel(index, 0);
+     
         return outputColor;
 
     }

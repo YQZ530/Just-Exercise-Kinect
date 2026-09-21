@@ -25,8 +25,6 @@ public class DrawCMColorEditor : Editor {
         {
             tar.DrawLegend();
         }
-
-
         EditorGUILayout.EndHorizontal();
 
         //tar.str = EditorGUILayout.DelayedTextField ("sta:",tar.str);

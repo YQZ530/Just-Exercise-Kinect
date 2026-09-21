@@ -251,7 +251,6 @@ public class BiaoRJMCMC : MonoBehaviour
 
             //make temp drops faster
             temperature = ((float)Iteration / TargetIteration) * MaxTemperature + 0.001f;
-
             if ((targetAdVar - Iteration) % 1000 == 0)
             {
                 curve.AddKey((1f - 1f * Iteration / TargetIteration), bestCost);
@@ -266,34 +265,31 @@ public class BiaoRJMCMC : MonoBehaviour
         if (levelcounter == 0)
         {
 
-            levelFilename = "biao/bmedianrot";
-            helperScript.targetfile = "bmedianrottarget";
-            DurationWeight = 0.6f;
+            levelFilename = "biao/medianrot";
+            helperScript.targetfile = "biao/medianrottarget";
             helperScript.LoadTargetsFile();
             StartRJMCMC();
 
-            print("begin median rot");
+            print("begin median dist");
 
         }
         else if (levelcounter == 1)
         {
             
             print("finish median rot" + Iteration);
-            levelFilename = "biao/bhighrot";
-            helperScript.targetfile = "bhighrottarget";
+            levelFilename = "biao/highrot";
+            helperScript.targetfile = "biao/highrottarget";
             helperScript.LoadTargetsFile();
             StartRJMCMC();
-            DurationWeight = 0.4f;
             print("begin high rot");
         }
         else if (levelcounter == 2)
         {
             //enabled = true;
             print("finish high rot" + Iteration + "begin" + begin);
-            levelFilename = "biao/bmediancm";
-            helperScript.targetfile = "bmediancmtarget";
+            levelFilename = "biao/highcm";
+            helperScript.targetfile = "biao/mediancmtarget";
             helperScript.LoadTargetsFile();
-            DurationWeight = 0.4f;
             print("start median cm");
             StartRJMCMC();
 
@@ -302,10 +298,9 @@ public class BiaoRJMCMC : MonoBehaviour
         else if (levelcounter == 3)
         {
             print("finish median cm" + Iteration);
-            levelFilename = "biao/bhighcm";
-            helperScript.targetfile = "bhighcmtarget";
+            levelFilename = "biao/highcm";
+            helperScript.targetfile = "biao/highcmtarget";
             helperScript.LoadTargetsFile();
-            DurationWeight = 0.4f;
             print("start high cm");
             StartRJMCMC();
         }
@@ -459,7 +454,7 @@ public class BiaoRJMCMC : MonoBehaviour
     //random function 1~prefabsize
     int Rnd()
     {
-        return UnityEngine.Random.Range(0, PrefabSize);
+        return UnityEngine.Random.Range(1, PrefabSize);
     }
 
     void SelectMethod()

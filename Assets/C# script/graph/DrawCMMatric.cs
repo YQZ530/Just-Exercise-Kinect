@@ -112,8 +112,7 @@ public class DrawCMMatric : MonoBehaviour {
         int totalColor = 25;
         for (int i = 0; i <= totalColor; i++)
         {
-            //camera.backgroundColor = Get_ColorV2(i / (1.0f* totalColor));
-            camera.backgroundColor = Get_Color(i / (1.0f * totalColor));
+            camera.backgroundColor = Get_ColorV2(i / (1.0f* totalColor));
             ScreenShotLegend(i.ToString());
         }
         
@@ -142,7 +141,7 @@ public class DrawCMMatric : MonoBehaviour {
         DestroyImmediate(rt);
         // 最后将这些纹理数据，成一个png图片文件  
         byte[] bytes = screenShot.EncodeToPNG();
-        string filename = "C:/Users/z5308/Dropbox/level2Graph/graph" + "/" + "legend" + "/" + name + ".png";
+        string filename = "C:/Users/z5308/Desktop/graph" + "/" + "legend" + "/" + name + ".png";
         //string filename = Application.dataPath + "/" + filepath + "/" + screenShotPath + "/" + name + ".png";
         System.IO.File.WriteAllBytes(filename, bytes);
         Debug.Log(string.Format("截屏了一张照片: {0}", filename));
@@ -171,8 +170,8 @@ public class DrawCMMatric : MonoBehaviour {
         DestroyImmediate(rt);
         // 最后将这些纹理数据，成一个png图片文件  
         byte[] bytes = screenShot.EncodeToPNG();
-        string filename = "C:/Users/z5308/Dropbox/level2Graph/" + graphfoldername + name + ".png";
-        //C:\Users\z5308\Dropbox\level2Graph\graph\cm
+        string filename = "C:/Users/z5308/Dropbox/BackupGraph/" + graphfoldername + name + ".png";
+
         System.IO.File.WriteAllBytes(filename, bytes);
         Debug.Log(string.Format("截屏了一张照片: {0}", filename));
 

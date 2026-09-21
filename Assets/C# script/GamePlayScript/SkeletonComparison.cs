@@ -5,31 +5,31 @@ using UnityEngine.UI;
 
 // compare two skeleton and give a scores
 public class SkeletonComparison : MonoBehaviour {
-
-
-    public GameObject[] models;
-    public AvatarCreationV2[] modelScripts;
-    //public GameObject model;
+    
+    
+    public GameObject[] modelSkeletons;
+    public AvatarCreationV2[] modelSkeletonScripts;
     public GameObject user;
     public int totalJoint = 25;
-
-
-    AvatarCreationV2 modelScript;
+    
+    
+    AvatarCreationV2 modelSkeletonScript;
     SkeletonManKinectController userScript;
 
     public UserStudyRecorderReader RecorderScript;
     public ScoringMusic musicScript;
     List<MotionFrame> frames;
-
+    
     [Header("Scoring part")]
-    public float maxAngleDiff = 30f;
+    public float maxPercDiff = 30f;
     public float currentScore = 0f;
     public float totalScore = 0f;
     public Text UItext; //to display score
-    public Text UItxt2;
+    public Text debugText;
     IniFile importantJointFile;
+    IniFile modelsJointAngleInfoFile;
     public float[] scoringJoint;
-    public class MotionFrame {
+    public class MotionFrame{
         int totalJoint = 25;
         public List<Vector3> rotInfo;
 
@@ -41,62 +41,35 @@ public class SkeletonComparison : MonoBehaviour {
 
     private void Start()
     {
-        if (models == null)
+        if(modelSkeletons == null)
         {
             Debug.LogError("Did not assign model avatars!!");
-
+        
         }
         musicScript = ScoringMusic.Instance;
 
-        modelScripts = new AvatarCreationV2[models.Length];
-        for (int i = 0; i < models.Length; i++)
+        modelSkeletonScripts = new AvatarCreationV2[modelSkeletons.Length];
+        for (int i = 0; i < modelSkeletons.Length; i++)
         {
-            modelScripts[i] = models[i].GetComponent<AvatarCreationV2>();
+            modelSkeletonScripts[i] = modelSkeletons[i].GetComponent<AvatarCreationV2>();
         }
 
         userScript = user.GetComponent<SkeletonManKinectController>();
-
+      
         /////
         frames = new List<MotionFrame>();
         //load affected joint to score
         LoadImportantJointFile();
-        if (UItext != null)
-        {
-            UItext.text = "Current Score " + currentScore + "\n total Score " + totalScore;
-        }
+        //load models infor
+        LoadModelsJointDataFile();
+
+
     }
 
-    private void FixedUpdate()
-    {
-        //Vector3[] v3 = new Vector3[totalJoint];
-        //for (int i = 0; i < totalJoint; i++)
-        //{
-        //    v3[i] =userScript.bones[i].transform.position;
-        //}
-
-        //UItxt2.text = " " + (KinectInterop.JointType)4 + RotationCostHelperforModel(4, modeltemp.bones)
-        //    + " \n" + (KinectInterop.JointType)5 + RotationCostHelperforModel(5, modeltemp.bones)
-        //    + " \n" + (KinectInterop.JointType)8 + RotationCostHelperforModel(8, modeltemp.bones)
-        //    + " \n" + (KinectInterop.JointType)9 + RotationCostHelperforModel(9, modeltemp.bones)
-        //    + " \n" + (KinectInterop.JointType)12 + RotationCostHelperforModel(12, modeltemp.bones)
-        //    + " \n" + (KinectInterop.JointType)13 + RotationCostHelperforModel(13, modeltemp.bones)
-        //     + " \n" + (KinectInterop.JointType)16 + RotationCostHelperforModel(16, modeltemp.bones)
-        //    + " \n" + (KinectInterop.JointType)17 + RotationCostHelperforModel(17, modeltemp.bones); 
-
-        //UItxt2.text =        modeltemp.bones[4].transform.position;
-
-        //UItxt2.text = " " + (KinectInterop.JointType)4 + RotationCostHelper(4, v3)
-        //    + " \n" + (KinectInterop.JointType)5 + RotationCostHelper(5, v3)
-        //    + " \n" + (KinectInterop.JointType)8 + RotationCostHelper(8, v3)
-        //    + " \n" + (KinectInterop.JointType)9 + RotationCostHelper(9, v3)
-        //    + " \n" + (KinectInterop.JointType)12 + RotationCostHelper(12, v3)
-        //    + " \n" + (KinectInterop.JointType)13 + RotationCostHelper(13, v3)
-        //     + " \n" + (KinectInterop.JointType)16 + RotationCostHelper(16, v3)
-        //    + " \n" + (KinectInterop.JointType)17 + RotationCostHelper(17, v3);
-    }
-    void LoadImportantJointFile()
-    {
-        importantJointFile = new IniFile();
+   
+ void LoadImportantJointFile()
+ {
+         importantJointFile = new IniFile();
         if (!importantJointFile.Load_File(Application.dataPath + "/GamePlay/AffectJointsforScoring.ini"))
         {
             Debug.LogError("cannot open inifile path " + Application.dataPath + "/GamePlay/AffectJointsforScoring.ini");
@@ -106,19 +79,42 @@ public class SkeletonComparison : MonoBehaviour {
         //importantJointFile.Goto_Section("ImportanceRotJoint");
         //scoringJoint = importantJointFile.Get_FloatArray("ImportanceRotJoint", scoringJoint);
     }
-    public bool LoadImportantJoints(int chunk)
+
+void LoadModelsJointDataFile()
     {
+        modelsJointAngleInfoFile = new IniFile();
+        if (!modelsJointAngleInfoFile.Load_File(Application.dataPath + "/BiaoLevel/UserResult/keyposeAngle.ini"))
+        {
+            Debug.LogError("cannot open inifile path " + Application.dataPath + "/BiaoLevel/UserResult/keyposeAngle.ini");
+
+        }
+       
+    }
+    public float LoadModelInfo(int chunk, ref int joint )
+    {
+        float jointAngle = 0f;
+       
+        if (!modelsJointAngleInfoFile.Goto_Section(chunk.ToString())) {
+
+            Debug.LogError("cannot go to section");
+        };
+            jointAngle = modelsJointAngleInfoFile.Get_Float(joint.ToString());
+        return jointAngle;
+    }
+
+    public bool LoadImportantJoints(int chunk)
+{
         importantJointFile.Goto_Section(chunk.ToString());
         scoringJoint = importantJointFile.Get_FloatArray("score", scoringJoint);
         return true;
-    }
+}
     public void RecordCurrentMotion()
     {
 
         MotionFrame f = new MotionFrame();
         for (int i = 0; i < totalJoint; i++)
         {
-            f.rotInfo.Add(userScript.bones[i].transform.position);
+          f.rotInfo.Add(userScript.bones[i].transform.position);
         }
         frames.Add(f);
     }
@@ -128,33 +124,75 @@ public class SkeletonComparison : MonoBehaviour {
     }
     public float Compare(int chunk)
     {
-        modelScript = modelScripts[chunk];
-        LoadImportantJoints(chunk);
-
+        //modelSkeletonScript = modelSkeletonScripts[chunk];
+        //LoadImportantJoints(chunk);
+        
         float score = 0f;
-        float anglediff = 0f;
+        //float anglediff = 0f;
+        
+        //bool ispass = false;
+        //for (int i = 0; i < frames.Count; i++)
+        //{
+        //    ispass = ComparingRotation(ref modelSkeletonScript.bones, frames[i].rotInfo.ToArray(), ref anglediff);
 
+        //    if (ispass) //if all the joint are within maxangledifferent
+        //    {
+        //       // RecorderScript.RecordKeyFrame(i);
+        //        break;
+        //    }
+
+        //}
+
+        //if (ispass)
+        //{
+        //    if (anglediff < 15f)
+        //    {
+        //        score = 1;
+        //        musicScript.playGoodAudio();
+        //    }
+        //    else if (anglediff >= 15f)
+        //    {
+        //        musicScript.playGreatAudio();
+        //        score = 0.6f;
+        //    }
+        //}
+        //else //if is not match
+        //{
+        //    musicScript.playOhNoAudio();
+        //    score = 0f;
+        //}
+     
+        ////currentScore = score * 100f;
+        ////totalScore += currentScore;
+
+        ////if (UItext != null)
+        ////{
+        ////    UItext.text =   " Current Score " + currentScore + "\n total Score " + totalScore;
+        ////}
+        return score;
+    }
+
+    
+    
+    //Instance compare model and user
+
+    public float InstanceCompare(int chunk, ref GameObject[] user, ref float anglediff, ref float[] angleDiffPerc)
+    {
+       
+        
+        float score = 0f;
         bool ispass = false;
-        for (int i = 0; i < frames.Count; i++)
-        {
-            ispass = ComparingRotation(ref modelScript.bones, frames[i].rotInfo.ToArray(), ref anglediff);
+      
+        ispass = InstanceCompareHelper(ref chunk, ref user,  ref anglediff, ref angleDiffPerc );
 
-            if (ispass) //if all the joint are within maxangledifferent
-            {
-                RecorderScript.RecordKeyFrame(i);
-                break;
-            }
+        if (ispass){
 
-        }
-
-        if (ispass)
-        {
-            if (anglediff < 15f)
+            if (anglediff < 0.1f)
             {
                 score = 1;
                 musicScript.playGoodAudio();
             }
-            else if (anglediff >= 15f)
+            else if (anglediff >= 0.1f)
             {
                 musicScript.playGreatAudio();
                 score = 0.6f;
@@ -162,160 +200,244 @@ public class SkeletonComparison : MonoBehaviour {
         }
         else //if is not match
         {
-            musicScript.playOhNoAudio();
+           // musicScript.playOhNoAudio();
             score = 0f;
         }
-        //if (angle <15 ) {
-        //    score = 1;
-        //    musicScript.playGoodAudio();
-        //}
-        //else if(angle >= 15f && angle <= 20f)
-        //{
-        //    musicScript.playGreatAudio();
-        //    score = 0.6f;
-        //}
 
-        //else
-        //{
-        //    musicScript.playOhNoAudio();
-        //    score = 0f;
-        //}
-        currentScore = score * 100f;
-        totalScore += currentScore;
-
-        //if (UItext != null)
-        //{
-        //    UItext.text = " Current Score " + currentScore + "\n total Score " + totalScore;
-        //}
-        UpdateScore(currentScore);
+       
         return score;
+
     }
 
-    public void UpdateScore(float score)
+    //
+    public bool InstanceCompareHelper(ref int chunk, ref GameObject[] user, ref float sumPercDiff, ref float[] angleDiffPerc)
     {
+        bool ispass = true;
+        LoadImportantJoints(chunk);
 
-        totalScore += score;
-        if (UItext != null)
-        {
-            UItext.text = " Current Score " + score + "\n total Score " + totalScore;
-        }
-    }
-    bool ComparingRotation(ref GameObject[] model, Vector3[] v_user, ref float sumdiff)
-    {
+        debugText.text = " ";
         float angleDiff = 0f;
-        sumdiff = 0f;
+        //int tolerance= 0; //define how many joint angle diff outside 
         int counter = 0;
-      
+
         for (int i = 0; i < totalJoint; i++)
         {
-            if (scoringJoint[i] == 1f)
+           
+            if (scoringJoint[i] > 0f)
             {
-                float modelAngle = RotationCostHelperforModel(i, model);
+                float modelAngle = LoadModelInfo(chunk, ref i);
+
+                float userAngle = RotationCostHelperforGameObjType(i, user);
                
-                float userAngle = RotationCostHelperforUser(i, v_user);
-
-                // compare user pose rotation to model rotation
-                //initialPoseRot is initial rotation, angle is current rotation
-
                 //if they are all positive
-                if(modelAngle >= 0f && userAngle >= 0f)
+                if (modelAngle >= 0f && userAngle >= 0f)
                 {
                     angleDiff = Mathf.Abs(modelAngle - userAngle);
                 }
-               else if(modelAngle < 0f && userAngle < 0f)
+                else if (modelAngle < 0f && userAngle < 0f)
                 {
                     angleDiff = Mathf.Abs(Mathf.Abs(modelAngle) - Mathf.Abs(userAngle));
                 }
+                else //one positive one negative
+                {
+                    //float mAngle = Mathf.Abs(modelAngle);
+                    //float uAngle = Mathf.Abs(userAngle);
+                    //if (mAngle >= 90 && uAngle >= 90)
+                    //{
+                    //    angleDiff = 360 - mAngle - uAngle;
+                    //}
+                    //else if (mAngle < 90 && uAngle < 90)
+                    //{
+                    //    angleDiff = mAngle + uAngle;
+
+                    //}
+                    //else //one of them is > 90 one of them is < 90
+                    //{
+                    //    angleDiff = 180 - mAngle - uAngle;
+                    //}
+                    float mAngle = Mathf.Abs(modelAngle);
+                    float uAngle = Mathf.Abs(userAngle);
+                    float r1 = 360 - mAngle - uAngle;
+                    float r2 = mAngle + uAngle;
+                    angleDiff = Mathf.Min(r1, r2);
+
+                }
+                angleDiffPerc[i] = angleDiff / 180f;
+                
+                //compare to maxPercDiff; return value from 0~1
+               
+
+                
+                //if current joint is not match with model 
+                if ((angleDiff/180f) * scoringJoint[i] > maxPercDiff ) //if angle one of important joint are > than the setting, return false
+                {
+                    debugText.text += "joint " + i + "  model angle" +  Mathf.RoundToInt( modelAngle )+ "                user Angle " 
+                                  + Mathf.RoundToInt(userAngle);
+                    debugText.text += "   angle diff " + Mathf.RoundToInt(angleDiff) + "\n";
+                    angleDiffPerc[i] = (angleDiffPerc[i] * scoringJoint[i]) / maxPercDiff;
+                    ispass = false;
+                }
                 else
                 {
-                    angleDiff = 360 - Mathf.Abs(modelAngle) - Mathf.Abs(userAngle);
+                    angleDiffPerc[i] = 0.1f; //set to zero only for color the joint
                 }
-                if(angleDiff > maxAngleDiff)
-                {
-                    return false;
-                }
-                sumdiff += angleDiff;
+                angleDiff /= 180f;
+                sumPercDiff += (angleDiff);
+                
                 counter++;
-                //if (UItext != null)
-                //{
-                //    UItext.text += (KinectInterop.JointType)i + "angle diff " + angleDiff
-                //                   + "   model angle " + modelAngle
-                //                       + "  userangle  " + userAngle + " \n";
-
-                //}
 
             }
 
         }
-        // UItext.text += "sum perc diff " + sumPercDiff;
-        // sumPercDiff = (counter == 0) ? 0 : sumPercDiff / (1.0f * counter);
-        sumdiff = sumdiff / (1.0f * counter);
-       // UItext.text += "sum perc diff avg " + sumPercDiff + " counter " + counter;
 
-        return true;
+        sumPercDiff = sumPercDiff / (1.0f * counter); //update perc diff
+        debugText.text += "      total diff " + sumPercDiff + "\n";
+        // print("avg sum diff" + sumPercDiff);
+      
+  
+
+        return ispass;
+    }
+
+
+
+    //Biao version of angle calculation
+    public static float RotationCostHelperforGameObjType(int curJoint, GameObject[] model)
+    {
+        //Transform tar = transform, own = transform;
+        Vector3 fromJoint = Vector3.zero, toJoint = Vector3.zero;
+
+        switch (curJoint)
+        {
+            case 0: // spinebase with hips
+                {
+                    fromJoint = model[0].transform.position - model[1].transform.position;
+                    return -Vector3.SignedAngle(fromJoint, Vector3.down, Vector3.forward);
+                }
+            case 1: // spine mid with spinebase and neck
+                    fromJoint = model[8].transform.position - model[4].transform.position;
+                     toJoint = model[12].transform.position - model[16].transform.position;
+                     return Vector3.SignedAngle(fromJoint, toJoint, Vector3.forward);
+
+
+                //return Vector3.Angle(model[0].transform.position - model[1].transform.position, model[20].transform.position - model[1].transform.position);
+            case 4: // left should with shoulder and elbow
+                {
+                    fromJoint = model[5].transform.position - model[4].transform.position;
+                    toJoint = model[20].transform.position - model[4].transform.position;
+
+                    break;
+                }
+            case 5: // left elbow with left shoulder and wrist
+                {
+                    return Vector3.Angle(model[4].transform.position - model[5].transform.position, model[6].transform.position - model[5].transform.position);
+                   
+                }
+            case 8: // right shoulder with shoulder and elbow
+                {
+
+                    fromJoint = model[9].transform.position - model[8].transform.position;
+                    toJoint = model[20].transform.position - model[8].transform.position;
+
+                    break;
+                }
+            case 9: // right elbow with right shoulder and arm
+                {
+                    return Vector3.Angle(model[8].transform.position - model[9].transform.position, model[10].transform.position - model[9].transform.position);
+
+                 
+                }
+            case 12: // left hip with base and knee
+                                         //16-12 13-12
+                return Vector3.Angle(model[0].transform.position - model[12].transform.position, model[13].transform.position - model[12].transform.position);
+            case 13: // left knwee
+                {
+                    return Vector3.Angle(model[12].transform.position - model[13].transform.position, model[14].transform.position - model[13].transform.position);
+                }
+            case 16: // left hip with base and knee
+                // 12 -16 ,
+                return Vector3.Angle(model[0].transform.position - model[16].transform.position, model[17].transform.position - model[16].transform.position);
+            case 17: // left knwee
+                {
+                    return Vector3.Angle(model[16].transform.position - model[17].transform.position, model[18].transform.position - model[17].transform.position);
+                }
+        }
+
+       
+
+        if (fromJoint == Vector3.zero)
+            return 0f;
+
+
+        float angle = Vector3.SignedAngle(fromJoint, toJoint, Vector3.forward);
+
+        return -angle;
+
+
+
     }
 
     //maxdiff: max different angle torelent difference btw user and model
-    public bool InstanceComparsion(ref GameObject[] model, ref GameObject[] v_user, 
-                          ref float sumPercDiff)
-    {
-        float angleDiff = 0f;
-         sumPercDiff = 0f;
-        int counter = 0;
-       
-        for (int i = 0; i < totalJoint; i++)
-        {
-            print("joint " + i);
-            if (scoringJoint[i] == 1f)
-            {
-                float modelAngle = RotationCostHelperforModel(i, model);
+    //public bool InstanceComparsion(ref GameObject[] model, ref GameObject[] v_user, 
+    //                      ref float sumPercDiff)
+    //{
+    //    float angleDiff = 0f;
+    //     sumPercDiff = 0f;
+    //    int counter = 0;
 
-                float userAngle = RotationCostHelperforModel(i, v_user);
-                
-                //if they are all positive
-                if (modelAngle >= 0f && userAngle >= 0f)
-                {
-                    angleDiff = Mathf.Abs(modelAngle - userAngle);
-                }
-                else if (modelAngle < 0f && userAngle < 0f)
-                {
-                    angleDiff = Mathf.Abs(Mathf.Abs(modelAngle) - Mathf.Abs(userAngle));
-                }
-                else
-                {
-                    angleDiff = 360 - Mathf.Abs(modelAngle) - Mathf.Abs(userAngle);
-                }
+    //    for (int i = 0; i < totalJoint; i++)
+    //    {
+    //        //print("joint " + i);
+    //        if (scoringJoint[i] == 1f)
+    //        {
+    //            float modelAngle = RotationCostHelperforModel(i, model);
 
-                if(angleDiff > maxAngleDiff)
-                {
-                    return false;
-                }
+    //            float userAngle = RotationCostHelperforModel(i, v_user);
 
-                sumPercDiff += angleDiff;
-                counter++;
-               
-            }
+    //            //if they are all positive
+    //            if (modelAngle >= 0f && userAngle >= 0f)
+    //            {
+    //                angleDiff = Mathf.Abs(modelAngle - userAngle);
+    //            }
+    //            else if (modelAngle < 0f && userAngle < 0f)
+    //            {
+    //                angleDiff = Mathf.Abs(Mathf.Abs(modelAngle) - Mathf.Abs(userAngle));
+    //            }
+    //            else
+    //            {
+    //                angleDiff = 360 - Mathf.Abs(modelAngle) - Mathf.Abs(userAngle);
+    //            }
 
-        }
-        sumPercDiff = sumPercDiff / (1.0f * counter);
+    //            if(angleDiff > maxPercDiff)
+    //            {
+    //                return false;
+    //            }
 
-        return true;
+    //            sumPercDiff += angleDiff;
+    //            counter++;
 
-    }
+    //        }
+
+    //    }
+    //    sumPercDiff = sumPercDiff / (1.0f * counter);
+
+    //    return true;
+
+    //}
     //return an array of difference
-    public float[] ComparingRotationArray(ref GameObject[] model, ref GameObject[]  v_user)
+    public void InstanceCompareArray(int chunk, ref GameObject[]  v_user, ref float[] angleDiffPerc)
     {
-       // float angleDiff = 0f;
-        float[] angleDiff = new float[25];
+        LoadImportantJoints(chunk);
+
 
         for (int i = 0; i < totalJoint; i++)
         {
 
-            if (scoringJoint[i] == 1f)
+            if (scoringJoint[i] > 0f)
             {
-                float modelAngle = RotationCostHelperforModel(i, model);
+                float modelAngle = LoadModelInfo(chunk, ref i);
 
-                float userAngle = RotationCostHelperforModel(i, v_user);
+                float userAngle = RotationCostHelperforGameObjType(i, v_user);
 
                 // compare user pose rotation to model rotation
                 //initialPoseRot is initial rotation, angle is current rotation
@@ -323,155 +445,103 @@ public class SkeletonComparison : MonoBehaviour {
                 //if they are all positive
                 if (modelAngle >= 0f && userAngle >= 0f)
                 {
-                    angleDiff[i] = Mathf.Abs(modelAngle - userAngle);
+                    angleDiffPerc[i] = Mathf.Abs(modelAngle - userAngle);
                 }
                 else if (modelAngle < 0f && userAngle < 0f)
                 {
-                    angleDiff[i] = Mathf.Abs(Mathf.Abs(modelAngle) - Mathf.Abs(userAngle));
+                    angleDiffPerc[i] = Mathf.Abs(Mathf.Abs(modelAngle) - Mathf.Abs(userAngle));
                 }
-                else
+                else //one pos one neg
                 {
-                    angleDiff[i] = 360 - Mathf.Abs(modelAngle) - Mathf.Abs(userAngle);
+                    float mAngle = Mathf.Abs(modelAngle);
+                    float uAngle = Mathf.Abs(userAngle);
+                    float r1 = 360 - mAngle - uAngle;
+                    float r2 = mAngle + uAngle;
+                    angleDiffPerc[i] = Mathf.Min(r1, r2);
+
                 }
             }
-
+            angleDiffPerc[i] /= 180f; 
+            //compare to maxPercDiff; return value from 0~1
+            angleDiffPerc[i] =  (angleDiffPerc[i]*scoringJoint[i]) / maxPercDiff ;
         }
-        // UItext.text += "sum perc diff " + sumPercDiff;
-        // sumPercDiff = (counter == 0) ? 0 : sumPercDiff / (1.0f * counter);
-       
-        // UItext.text += "sum perc diff avg " + sumPercDiff + " counter " + counter;
-
-        return angleDiff;
+      
+      
     }
-    //float ComparingRotation()
+
+    //float RotationCostHelperforUser(int curJoint, Vector3[] user)
     //{
-    //    float angleDiff = 0f;
-    //    float sumAngle = 0f;
-    //    int counter = 0;
-    //    string s = "";
-    //    for (int i = 0; i < totalJoint; i++)
+    //    //Transform tar = transform, own = transform;
+    //    Vector3 fromJoint = Vector3.zero, toJoint = Vector3.zero;
+
+    //    switch (curJoint)
     //    {
-
-    //        if(scoringJoint[i] ==1f)
-    //        { 
-    //            float modelAngle = RotationCostHelper(i, modelScript.bones);
-
-
-    //            float userAngle = RotationCostHelper(i, userScript.bones);
-
-    //            // compare user pose rotation to model rotation
-    //            //initialPoseRot is initial rotation, angle is current rotation
-    //            if (modelAngle >= 0 && userAngle >= 0)
+    //        case 0: // spinebase with hips
     //            {
-    //                //if they are all positive
-    //                angleDiff = Mathf.Abs(modelAngle - userAngle);
+    //                fromJoint = user[0] - user[1];
+    //                return Vector3.SignedAngle(fromJoint, Vector3.down, Vector3.forward);
     //            }
-    //            else if (modelAngle < 0 && userAngle < 0)
+    //        case 1: // spine mid with spinebase and neck
+    //            return Vector3.Angle(user[0] - user[1], user[20] - user[1]);
+    //        //fromJoint = user[8] - user[4];
+    //        // toJoint = user[12] - user[16];
+    //        // return Vector3.SignedAngle(fromJoint, toJoint, Vector3.forward);
+
+    //        case 4: // left should with shoulder and elbow
     //            {
-    //                angleDiff = Mathf.Abs(modelAngle - userAngle);
+
+    //                fromJoint = user[5] - user[4];
+    //                toJoint = user[1] - user[20];
+
+    //                break;
     //            }
-    //            else
+    //        case 5: // left elbow with left shoulder and wrist
     //            {
-    //                //if they are diff sign; get minimum rotation angle
-    //                angleDiff = 360 - (Mathf.Abs(modelAngle) + Mathf.Abs(userAngle));
+    //                return Vector3.Angle(user[4] - user[5], user[6] - user[5]);
+    //                //return Vector3.Angle(joints[8].position - joints[9].position, joints[10].position - joints[9].position);
     //            }
+    //        case 8: // right shoulder with shoulder and elbow
+    //            {
 
-    //            //if (angleDiff > 20f ) {
-    //            //    //print(modelAngle + " " + userAngle + " " + (KinectInterop.JointType)i + " " + angleDiff);
-    //            //    //bones[i].gameObject.GetComponent<MeshRenderer>().sharedMaterial.color = Get_Color(angleDiff/180f);
-    //            //}
-    //            //print((KinectInterop.JointType)i + " " + angleDiff);
-    //            sumAngle += angleDiff;
-    //            counter++;
-    //            //if (UItext != null)
-    //            //{
-    //            //    UItext.text += (KinectInterop.JointType)i + "angle diff " + angleDiff
-    //            //                   + "  \n model angle" + modelAngle
-    //            //                       + "  userangle  " + userAngle +" \n";
+    //                fromJoint = user[9] - user[8];
+    //                toJoint = user[1] - user[20];
 
-    //            //}
-    //            s += (KinectInterop.JointType)i + "angle diff " + angleDiff
-    //                              + "  \n model angle" + modelAngle
-    //                                   + "  userangle  " + userAngle +" \n";
-    //        }
+    //                break;
+    //            }
+    //        case 9: // right elbow with right shoulder and arm
+    //            {
+    //                return Vector3.Angle(user[8] - user[9], user[10] - user[9]);
 
+    //                //swap
+    //                //return Vector3.Angle(joints[4].position - joints[5].position, joints[6].position - joints[5].position);
+
+    //            }
+    //        case 12: // left hip with base and knee
+    //            return Vector3.Angle(user[0] - user[12], user[13] - user[12]);
+    //        case 13: // left knwee
+    //            {
+    //                return Vector3.Angle(user[12] - user[13], user[14] - user[13]);
+    //            }
+    //        case 16: // left hip with base and knee
+    //            return Vector3.Angle(user[0] - user[16], user[17] - user[16]);
+    //        case 17: // left knwee
+    //            {
+    //                return Vector3.Angle(user[16] - user[17], user[18] - user[17]);
+    //            }
     //    }
-    //    print(s);
-    //    sumAngle =  (counter ==0) ? 0: sumAngle / (1.0f * counter);
 
 
-    //    return sumAngle;
+    //    if (fromJoint == Vector3.zero)
+    //        return 0f;
+
+
+    //    float angle = Vector3.SignedAngle(fromJoint, toJoint, Vector3.forward);
+
+    //    return -angle;
+
+
+
     //}
-
-    float RotationCostHelperforModel(int curJoint, GameObject[] bones)
-    {
-        
-        int curParentJoint = (int)GetParentJoint((KinectInterop.JointType)curJoint);
-        int curChildJoint = (int)GetNextJoint((KinectInterop.JointType)curJoint);
-       
-        Vector3 root = bones[0].transform.position;
-        //local position for current joint parent jont and child joint
-        Vector3 curPos = bones[curJoint].transform.position - root;
-        Vector3 parentPos = bones[curParentJoint].transform.position - root;
-        Vector3 childPos = bones[curChildJoint].transform.position - root;
-
-        /*calculate current joint angle*/
-        Vector3 v1 = (parentPos - curPos).normalized;
-        Vector3 v2 = (childPos - curPos).normalized;
-        Vector3 vn = Vector3.forward;
-        
-        if ( curJoint == 0) //if is spine
-        {
-            curPos = bones[curJoint].transform.position - root;
-            parentPos = bones[1].transform.position - root;
-            childPos = Vector3.down;
-            v1 = (parentPos - curPos).normalized;
-            v2 = (childPos - curPos).normalized;
-            vn = Vector3.forward;
-        }
-
-        Vector3 cross = Vector3.Cross(v1, v2);
-        float angle = Vector3.Angle(v1, v2);
-        if (Vector3.Dot(vn, cross) < 0) { angle = -angle; }
-
-        return angle;
-    }
-
-    float RotationCostHelperforUser(int curJoint, Vector3[] v_bones)
-    {
-
-        int curParentJoint = (int)GetParentJoint((KinectInterop.JointType)curJoint);
-        int curChildJoint = (int)GetNextJoint((KinectInterop.JointType)curJoint);
-       
-        Vector3 root = v_bones[0];
-        //local position for current joint parent jont and child joint
-        Vector3 curPos = v_bones[curJoint] - root;
-        Vector3 parentPos = v_bones[curParentJoint] - root;
-        Vector3 childPos = v_bones[curChildJoint] - root;
-
-        /*calculate current joint angle*/
-        Vector3 v1 = (parentPos - curPos).normalized;
-        Vector3 v2 = (childPos - curPos).normalized;
-        //Vector3 vn = Vector3.forward;
-
-        Vector3 vn = Vector3.forward;
-        if (curJoint == 0) //if is spine
-        {
-            curPos = v_bones[curJoint] - root;
-            parentPos = v_bones[1] - root;
-            childPos = Vector3.down;
-            v1 = (parentPos - curPos).normalized;
-            v2 = (childPos - curPos).normalized;
-            vn = Vector3.back;
-
-        }
-
-        Vector3 cross = Vector3.Cross(v1, v2);
-        float angle = Vector3.Angle(v1, v2);
-        if (Vector3.Dot(vn, cross) < 0) { angle = -angle; }
-
-        return angle;
-    }
     public KinectInterop.JointType GetParentJoint(KinectInterop.JointType joint)
     {
         switch (joint)
@@ -571,93 +641,136 @@ public class SkeletonComparison : MonoBehaviour {
         return joint;  // end joint
     }
 
+   
+    bool ComparingRotation(ref GameObject[] model, Vector3[] v_user, ref float sumdiff)
+    {
+        // float angleDiff = 0f;
+        // sumdiff = 0f;
+        // int counter = 0;
+
+        // for (int i = 0; i < totalJoint; i++)
+        // {
+        //     if (scoringJoint[i] > 0f)
+        //     {
+        //         float modelAngle = RotationCostHelperforModel(i, model);
+
+        //         float userAngle = RotationCostHelperforUser(i, v_user);
+
+        //         // compare user pose rotation to model rotation
+        //         //initialPoseRot is initial rotation, angle is current rotation
+
+        //         //if they are all positive
+        //         if(modelAngle >= 0f && userAngle >= 0f)
+        //         {
+        //             angleDiff = Mathf.Abs(modelAngle - userAngle);
+        //         }
+        //        else if(modelAngle < 0f && userAngle < 0f)
+        //         {
+        //             angleDiff = Mathf.Abs(Mathf.Abs(modelAngle) - Mathf.Abs(userAngle));
+        //         }
+        //         else
+        //         {
+        //             angleDiff = 360 - Mathf.Abs(modelAngle) - Mathf.Abs(userAngle);
+        //         }
+        //         if(angleDiff > maxPercDiff*scoringJoint[i])
+        //         {
+        //             return false;
+        //         }
+        //         sumdiff += angleDiff;
+        //         counter++;
+        //         //if (UItext != null)
+        //         //{
+        //         //    UItext.text += (KinectInterop.JointType)i + "angle diff " + angleDiff
+        //         //                   + "   model angle " + modelAngle
+        //         //                       + "  userangle  " + userAngle + " \n";
+
+        //         //}
+
+        //     }
+
+        // }
+        // // UItext.text += "sum perc diff " + sumPercDiff;
+        // // sumPercDiff = (counter == 0) ? 0 : sumPercDiff / (1.0f * counter);
+        // sumdiff = sumdiff / (1.0f * counter);
+        //// UItext.text += "sum perc diff avg " + sumPercDiff + " counter " + counter;
+
+        return true;
+    }
+
+    //old version
+    //float RotationCostHelperforModel(int curJoint, GameObject[] bones)
+    //{
+
+    //    int curParentJoint = (int)GetParentJoint((KinectInterop.JointType)curJoint);
+    //    int curChildJoint = (int)GetNextJoint((KinectInterop.JointType)curJoint);
+
+    //    Vector3 root = bones[0].transform.position;
+    //    //local position for current joint parent jont and child joint
+    //    Vector3 curPos = bones[curJoint].transform.position - root;
+    //    Vector3 parentPos = bones[curParentJoint].transform.position - root;
+    //    Vector3 childPos = bones[curChildJoint].transform.position - root;
+
+    //    /*calculate current joint angle*/
+    //    Vector3 v1 = (parentPos - curPos).normalized;
+    //    Vector3 v2 = (childPos - curPos).normalized;
+    //    Vector3 vn = Vector3.forward;
+
+    //    if ( curJoint == 0) //if is spine
+    //    {
+    //        curPos = bones[curJoint].transform.position - root;
+    //        parentPos = bones[1].transform.position - root;
+    //        childPos = Vector3.down;
+    //        v1 = (parentPos - curPos).normalized;
+    //        v2 = (childPos - curPos).normalized;
+    //        vn = Vector3.forward;
+    //    }
+
+    //    Vector3 cross = Vector3.Cross(v1, v2);
+    //    float angle = Vector3.Angle(v1, v2);
+    //    if (Vector3.Dot(vn, cross) < 0) { angle = -angle; }
+
+    //    return angle;
+    //}
+
+    //float RotationCostHelperforUser(int curJoint, Vector3[] v_bones)
+    //{
+
+    //    int curParentJoint = (int)GetParentJoint((KinectInterop.JointType)curJoint);
+    //    int curChildJoint = (int)GetNextJoint((KinectInterop.JointType)curJoint);
+
+    //    Vector3 root = v_bones[0];
+    //    //local position for current joint parent jont and child joint
+    //    Vector3 curPos = v_bones[curJoint] - root;
+    //    Vector3 parentPos = v_bones[curParentJoint] - root;
+    //    Vector3 childPos = v_bones[curChildJoint] - root;
+
+    //    /*calculate current joint angle*/
+    //    Vector3 v1 = (parentPos - curPos).normalized;
+    //    Vector3 v2 = (childPos - curPos).normalized;
+    //    //Vector3 vn = Vector3.forward;
+
+    //    Vector3 vn = Vector3.forward;
+    //    if (curJoint == 0) //if is spine
+    //    {
+    //        curPos = v_bones[curJoint] - root;
+    //        parentPos = v_bones[1] - root;
+    //        childPos = Vector3.down;
+    //        v1 = (parentPos - curPos).normalized;
+    //        v2 = (childPos - curPos).normalized;
+    //        vn = Vector3.back;
+
+    //    }
+
+    //    Vector3 cross = Vector3.Cross(v1, v2);
+    //    float angle = Vector3.Angle(v1, v2);
+    //    if (Vector3.Dot(vn, cross) < 0) { angle = -angle; }
+
+    //    return angle;
+    //}
+
+  
+
 
 
 }
-//if (!importantJointFile.Load_File(Application.dataPath + "/GamePlay/ImportantJoint.ini"))
-//        {
-//            Debug.LogError("cannot open inifile path " + Application.dataPath + "/GamePlay/ImportantJoint.ini");
-
-//        }
-//scoringJoint = new float[25];
-//        importantJointFile.Goto_Section("ImportanceRotJoint");
-//        scoringJoint = importantJointFile.Get_FloatArray("ImportanceRotJoint", scoringJoint);
-
-//void readAFile()
-//{
-//    CreateBoneList();
-//    StreamReader reader = new StreamReader(Application.dataPath + "/" + SkeletonfilePath + "/" + SkeletonfileName + ".txt");
-
-//    Vector3[] skeletonTransform = new Vector3[bones.Length];
-//    //add all the position info to a chunk
-//    while (!reader.EndOfStream)
-//    {
-//        string line = reader.ReadLine();
-
-//        if (line == null) { Debug.Log("EOF"); return; }
-
-//        string[] array = line.Split('|');
-
-//        for (int i = 0; i < bones.Length; i++)
-//        {
-
-//            string[] temp = array[i].Split(' ');
-//            float x = 0f, y = 0f, z = 0f;
-//            float.TryParse(temp[0], out x);
-//            float.TryParse(temp[1], out y);
-//            float.TryParse(temp[2], out z);
-
-//            skeletonTransform[i] = new Vector3(x, y, z);
-//        }
-
-//        CalculateBoneLength();
-//        Vector3 v = this.transform.position - skeletonTransform[0]; //current position
-//        bones[0].transform.position = this.transform.position;
-
-//        bones[1].transform.position = skeletonTransform[1] + v; ;
-
-//        bones[2].transform.position = skeletonTransform[2] + v;
-
-//        bones[20].transform.position = skeletonTransform[20] + v;
-//        for (int i = 3; i < bones.Length; i++)
-//        {
-//            if (i == 20) { continue; }
-
-//            bones[i].transform.position = skeletonTransform[i] + v;
-//        }
-
-//    }
-
-//}
-////for easy to access each joint
-//void CreateBoneList()
-//{
-//    bones = new GameObject[] {
-//        Hip_Center,
-//        Spine,
-//        Neck,
-//        Head,
-//        Shoulder_Left,
-//        Elbow_Left,
-//        Wrist_Left,
-//        Hand_Left,
-//        Shoulder_Right,
-//        Elbow_Right,
-//        Wrist_Right,
-//        Hand_Right,
-//        Hip_Left,
-//        Knee_Left,
-//        Ankle_Left,
-//        Foot_Left,
-//        Hip_Right,
-//        Knee_Right,
-//        Ankle_Right,
-//        Foot_Right,
-//        Spine_Shoulder,
-//        Hand_Tip_Left,
-//        Thumb_Left,
-//        Hand_Tip_Right,
-//        Thumb_Right
-//    };
-//}
 

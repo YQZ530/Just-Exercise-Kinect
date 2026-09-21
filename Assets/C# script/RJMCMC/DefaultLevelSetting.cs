@@ -8,6 +8,7 @@ public class DefaultLevelSetting : MonoBehaviour
     public IniFile DefaultLevelfile;
 
     public string presetDataPath = "/MCMC_Preset/";
+    public string TablesDataPath = "/MCMC_Preset/";
     //public IniFile DistDataFile;
     public IniFile RotDataFile;
     public IniFile CMDataFile;
@@ -71,10 +72,10 @@ public class DefaultLevelSetting : MonoBehaviour
         RotDataFile = new IniFile();
         CMDataFile = new IniFile();
        
-        RotDataFile.Load_File(Application.dataPath + presetDataPath + RotTableName+".ini");
-        CMDataFile.Load_File(Application.dataPath + presetDataPath + cmTableName+ ".ini");
-        
-        Debug.Log("Finish Loading preset info and targets");
+         RotDataFile.Load_File(Application.dataPath + TablesDataPath + RotTableName+".ini");
+         CMDataFile.Load_File(Application.dataPath + TablesDataPath + cmTableName+ ".ini");
+
+         Debug.Log("Finish Loading preset info and targets");
     }
 
     public void LoadDefaultLevel()

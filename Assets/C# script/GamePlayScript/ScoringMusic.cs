@@ -42,20 +42,24 @@ public class ScoringMusic : MonoBehaviour {
         public void playOhNoAudio()
         {
 
-            audio.clip = ohNo;
-            audio.Play();
+           
+        if(audio.isPlaying ) { return;  }
+        audio.clip = ohNo;
+        audio.Play();
 
         }
 
         public void playGoodAudio()
         {
+        if (audio.isPlaying) { return; }
             audio.clip = good;
             audio.Play();
 
         }
         public void playGreatAudio()
         {
-            audio.clip = great;
+        if (audio.isPlaying) { return; }
+        audio.clip = great;
             audio.Play();
 
         }

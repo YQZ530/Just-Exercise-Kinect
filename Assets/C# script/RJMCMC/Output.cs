@@ -42,7 +42,6 @@ public class Output : MonoBehaviour {
     }
     public void FinishOutput(string filename)
     {
-        print("Save to  " + Application.dataPath + datapath + filename + ".ini");
         outputFile.SaveTo(Application.dataPath + datapath + filename + ".ini");
     }
     public bool LoadFile(string filename)
@@ -79,12 +78,7 @@ public class Output : MonoBehaviour {
             outputFile.Set_Float(0.ToString(), value);
                
     }
-    public void printString(string name, string value)
-    {
-        outputFile.Set_String(name, value);
-
-    }
-
+  
     public void printAllWeight(float distWeight, float rotWeight, float CMWeight)
     {
         outputFile.Create_Section("Weights");

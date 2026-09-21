@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2017
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIGCHI V- JD", "SIGCHI V- JD.csproj", "{4CBA7F6F-546B-7785-DEEF-CD4CD6E271BD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIGCHI V- JD.Plugins", "SIGCHI V- JD.Plugins.csproj", "{8B7160A0-BF1C-5C1D-E698-F91F3F875916}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIGCHI V- JD.Editor.Plugins", "SIGCHI V- JD.Editor.Plugins.csproj", "{2C8843E7-7ECD-A093-79D8-A1D51AEDDD60}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIGCHI V- JD.Editor", "SIGCHI V- JD.Editor.csproj", "{156405F7-C71E-60C9-6E3C-0001E7C102AB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4CBA7F6F-546B-7785-DEEF-CD4CD6E271BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CBA7F6F-546B-7785-DEEF-CD4CD6E271BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CBA7F6F-546B-7785-DEEF-CD4CD6E271BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CBA7F6F-546B-7785-DEEF-CD4CD6E271BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B7160A0-BF1C-5C1D-E698-F91F3F875916}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B7160A0-BF1C-5C1D-E698-F91F3F875916}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B7160A0-BF1C-5C1D-E698-F91F3F875916}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B7160A0-BF1C-5C1D-E698-F91F3F875916}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C8843E7-7ECD-A093-79D8-A1D51AEDDD60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C8843E7-7ECD-A093-79D8-A1D51AEDDD60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C8843E7-7ECD-A093-79D8-A1D51AEDDD60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C8843E7-7ECD-A093-79D8-A1D51AEDDD60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{156405F7-C71E-60C9-6E3C-0001E7C102AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{156405F7-C71E-60C9-6E3C-0001E7C102AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{156405F7-C71E-60C9-6E3C-0001E7C102AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{156405F7-C71E-60C9-6E3C-0001E7C102AB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
