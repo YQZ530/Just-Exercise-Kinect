@@ -1,0 +1,581 @@
+fileFormatVersion: 2
+guid: 4c9a5ef95b83e6a46b4526dedfbaeb4d
+timeCreated: 1515687923
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: dummy_belly
+    100004: dummy_headq
+    100006: dummy_hips3
+    100008: dummy_lankle
+    100010: dummy_larm
+    100012: dummy_lelbow
+    100014: dummy_lfarm
+    100016: dummy_lfoot
+    100018: dummy_lhand
+    100020: dummy_lknee
+    100022: dummy_lleg
+    100024: dummy_lpelvis
+    100026: dummy_lshoulder
+    100028: dummy_lupleg
+    100030: dummy_lwrist
+    100032: dummy_neck
+    100034: dummy_rankle
+    100036: dummy_rarm
+    100038: dummy_relbow
+    100040: dummy_rfarm
+    100042: dummy_rfoot
+    100044: dummy_rhand
+    100046: dummy_rknee
+    100048: dummy_rleg
+    100050: dummy_rpelvis
+    100052: dummy_rshoulder
+    100054: dummy_rupleg
+    100056: dummy_rwrist
+    100058: dummy_torso
+    100060: lights:xtralight
+    100062: lights:xtralight1
+    100064: lights:xtralight2
+    100066: lights:xtralights
+    100068: pPlane1
+    400000: //RootNode
+    400002: dummy_belly
+    400004: dummy_headq
+    400006: dummy_hips3
+    400008: dummy_lankle
+    400010: dummy_larm
+    400012: dummy_lelbow
+    400014: dummy_lfarm
+    400016: dummy_lfoot
+    400018: dummy_lhand
+    400020: dummy_lknee
+    400022: dummy_lleg
+    400024: dummy_lpelvis
+    400026: dummy_lshoulder
+    400028: dummy_lupleg
+    400030: dummy_lwrist
+    400032: dummy_neck
+    400034: dummy_rankle
+    400036: dummy_rarm
+    400038: dummy_relbow
+    400040: dummy_rfarm
+    400042: dummy_rfoot
+    400044: dummy_rhand
+    400046: dummy_rknee
+    400048: dummy_rleg
+    400050: dummy_rpelvis
+    400052: dummy_rshoulder
+    400054: dummy_rupleg
+    400056: dummy_rwrist
+    400058: dummy_torso
+    400060: lights:xtralight
+    400062: lights:xtralight1
+    400064: lights:xtralight2
+    400066: lights:xtralights
+    400068: pPlane1
+    2300000: dummy_belly
+    2300002: dummy_headq
+    2300004: dummy_hips3
+    2300006: dummy_lankle
+    2300008: dummy_larm
+    2300010: dummy_lelbow
+    2300012: dummy_lfarm
+    2300014: dummy_lfoot
+    2300016: dummy_lhand
+    2300018: dummy_lknee
+    2300020: dummy_lleg
+    2300022: dummy_lpelvis
+    2300024: dummy_lshoulder
+    2300026: dummy_lupleg
+    2300028: dummy_lwrist
+    2300030: dummy_neck
+    2300032: dummy_rankle
+    2300034: dummy_rarm
+    2300036: dummy_relbow
+    2300038: dummy_rfarm
+    2300040: dummy_rfoot
+    2300042: dummy_rhand
+    2300044: dummy_rknee
+    2300046: dummy_rleg
+    2300048: dummy_rpelvis
+    2300050: dummy_rshoulder
+    2300052: dummy_rupleg
+    2300054: dummy_rwrist
+    2300056: dummy_torso
+    2300058: pPlane1
+    3300000: dummy_belly
+    3300002: dummy_headq
+    3300004: dummy_hips3
+    3300006: dummy_lankle
+    3300008: dummy_larm
+    3300010: dummy_lelbow
+    3300012: dummy_lfarm
+    3300014: dummy_lfoot
+    3300016: dummy_lhand
+    3300018: dummy_lknee
+    3300020: dummy_lleg
+    3300022: dummy_lpelvis
+    3300024: dummy_lshoulder
+    3300026: dummy_lupleg
+    3300028: dummy_lwrist
+    3300030: dummy_neck
+    3300032: dummy_rankle
+    3300034: dummy_rarm
+    3300036: dummy_relbow
+    3300038: dummy_rfarm
+    3300040: dummy_rfoot
+    3300042: dummy_rhand
+    3300044: dummy_rknee
+    3300046: dummy_rleg
+    3300048: dummy_rpelvis
+    3300050: dummy_rshoulder
+    3300052: dummy_rupleg
+    3300054: dummy_rwrist
+    3300056: dummy_torso
+    3300058: pPlane1
+    4300000: dummy_hips3
+    4300002: dummy_belly
+    4300004: dummy_torso
+    4300006: dummy_rshoulder
+    4300008: dummy_rarm
+    4300010: dummy_relbow
+    4300012: dummy_rfarm
+    4300014: dummy_rwrist
+    4300016: dummy_rhand
+    4300018: dummy_lshoulder
+    4300020: dummy_larm
+    4300022: dummy_lelbow
+    4300024: dummy_lfarm
+    4300026: dummy_lwrist
+    4300028: dummy_lhand
+    4300030: dummy_neck
+    4300032: dummy_headq
+    4300034: dummy_rpelvis
+    4300036: dummy_rupleg
+    4300038: dummy_rknee
+    4300040: dummy_rleg
+    4300042: dummy_rankle
+    4300044: dummy_rfoot
+    4300046: dummy_lpelvis
+    4300048: dummy_lupleg
+    4300050: dummy_lknee
+    4300052: dummy_lleg
+    4300054: dummy_lankle
+    4300056: dummy_lfoot
+    4300058: pPlane1
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human:
+    - boneName: dummy_hips3
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: dummy_lpelvis
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: dummy_rpelvis
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: dummy_lknee
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: dummy_rknee
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: dummy_lankle
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: dummy_rankle
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: dummy_belly
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: dummy_neck
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: dummy_headq
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: dummy_rshoulder
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: dummy_larm
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: dummy_rarm
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: dummy_lelbow
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: dummy_relbow
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: dummy_lwrist
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: dummy_rwrist
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: dummy_lfoot
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: dummy_rfoot
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: dummy_torso
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: dummy_lshoulder
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: dum(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: dummy_hips3
+      parentName: dum(Clone)
+      position: {x: -3.603279e-18, y: 1.0697592, z: 0.023324825}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: dummy_belly
+      parentName: dummy_hips3
+      position: {x: -0, y: 0.077207446, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: dummy_torso
+      parentName: dummy_belly
+      position: {x: 5.350606e-18, y: 0.19830774, z: 0.021845505}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: dummy_lshoulder
+      parentName: dummy_torso
+      position: {x: -0.19808762, y: 0.030704899, z: -0.021845505}
+      rotation: {x: -0.49689817, y: 0, z: 0, w: 0.8678088}
+      scale: {x: 1, y: 1, z: 1}
+    - name: dummy_larm
+      parentName: dummy_lshoulder
+      position: {x: -0.121835455, y: 0, z: 1.3322676e-17}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: dummy_lelbow
+      parentName: dummy_larm
+      position: {x: -0.15641648, y: 0, z: 2.2204459e-17}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: dummy_lfarm
+      parentName: dummy_lelbow
+      position: {x: -0.10387564, y: 0, z: 1.3322676e-17}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: dummy_lwrist
+      parentName: dummy_lfarm
+      position: {x: -0.15035544, y: 0, z: 1.7763568e-17}
+      rotation: {x: -0, y: -0, z: -0.031070275, w: 0.99951726}
+      scale: {x: 1, y: 1, z: 1}
+    - name: dummy_lhand
+      parentName: dummy_lwrist
+      position: {x: -0.07951808, y: -0.018237757, z: 4.440892e-18}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: dummy_neck
+      parentName: dummy_torso
+      position: {x: -5.350606e-18, y: 0.15803719, z: -0.021845505}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: dummy_headq
+      parentName: dummy_neck
+      position: {x: 6.557406e-32, y: 0.16674171, z: 2.664535e-16}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: dummy_rshoulder
+      parentName: dummy_torso
+      position: {x: 0.19808762, y: 0.030704899, z: -0.021845505}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: dummy_rarm
+      parentName: dummy_rshoulder
+      position: {x: 0.121835455, y: 0, z: -1.3322676e-17}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: dummy_relbow
+      parentName: dummy_rarm
+      position: {x: 0.15641648, y: 0, z: -2.2204459e-17}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: dummy_rfarm
+      parentName: dummy_relbow
+      position: {x: 0.10387564, y: 0, z: -1.3322676e-17}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: dummy_rwrist
+      parentName: dummy_rfarm
+      position: {x: 0.15035544, y: 0, z: -1.7763568e-17}
+      rotation: {x: -0, y: -0, z: 0.031070275, w: 0.99951726}
+      scale: {x: 1, y: 1, z: 1}
+    - name: dummy_rhand
+      parentName: dummy_rwrist
+      position: {x: 0.07951808, y: -0.018237757, z: -4.440892e-18}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: dummy_lpelvis
+      parentName: dummy_hips3
+      position: {x: -0.07932831, y: -0.14030612, z: -2.4868996e-16}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: dummy_lupleg
+      parentName: dummy_lpelvis
+      position: {x: -0, y: -0.21769322, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: dummy_lknee
+      parentName: dummy_lupleg
+      position: {x: -0, y: -0.22854297, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: dummy_lleg
+      parentName: dummy_lknee
+      position: {x: -0, y: -0.1496591, z: -2.664535e-16}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: dummy_lankle
+      parentName: dummy_lleg
+      position: {x: -0, y: -0.25114426, z: 0}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: dummy_lfoot
+      parentName: dummy_lankle
+      position: {x: -0, y: -0.0647976, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: dummy_rpelvis
+      parentName: dummy_hips3
+      position: {x: 0.07932831, y: -0.14030612, z: -2.842171e-16}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: dummy_rupleg
+      parentName: dummy_rpelvis
+      position: {x: -0, y: -0.21769322, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: dummy_rknee
+      parentName: dummy_rupleg
+      position: {x: -0, y: -0.22854297, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: dummy_rleg
+      parentName: dummy_rknee
+      position: {x: -0, y: -0.1496591, z: -2.753353e-16}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: dummy_rankle
+      parentName: dummy_rleg
+      position: {x: -0, y: -0.25114426, z: 0}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: dummy_rfoot
+      parentName: dummy_rankle
+      position: {x: -0, y: -0.0647976, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: lights:xtralights
+      parentName: dum(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 12.2445965, y: 12.2445965, z: 12.2445965}
+    - name: lights:xtralight
+      parentName: lights:xtralights
+      position: {x: -0, y: -1.1818128, z: 0.96203053}
+      rotation: {x: 0.9479461, y: -0, z: 0, w: 0.3184309}
+      scale: {x: 36.452305, y: 36.452305, z: 36.452305}
+    - name: lights:xtralight1
+      parentName: lights:xtralights
+      position: {x: -0.7497496, y: 0.7049491, z: 0.14508554}
+      rotation: {x: 0.23029616, y: -0.5945516, z: 0.32321024, w: 0.6992905}
+      scale: {x: 36.452305, y: 36.452305, z: 36.452305}
+    - name: lights:xtralight2
+      parentName: lights:xtralights
+      position: {x: 0.62658334, y: 0.5257278, z: 0.69534475}
+      rotation: {x: 0.4258201, y: 0.25211427, z: -0.19026658, w: 0.8478881}
+      scale: {x: 36.452305, y: 36.452305, z: 36.452305}
+    - name: pPlane1
+      parentName: dum(Clone)
+      position: {x: -0.0041382397, y: 0, z: 0.108640514}
+      rotation: {x: 0, y: 0.12245823, z: -0, w: 0.9924737}
+      scale: {x: 2.4602714, y: 1, z: 0.4287629}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 3
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

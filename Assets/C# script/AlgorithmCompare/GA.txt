@@ -1,0 +1,917 @@
+iteration is 5
+start time 4/3/2018 11:40:50 AM
+total generation6
+best fitness0.001183188
+best gene is 6 0 1 5 1 2 1 2 1 6 
+best cost is 0.001183188
+total duration 9
+Adjacent Variation cost0
+Rot cost0.001001632
+Rot cost * weight0.001001632
+cm cost0.0003631115
+cm cost * weight0.0001815557
+sumROt for Joint 0 227.315
+sumROt for Joint 1 42.67744
+sumROt for Joint 4 507.7724
+sumROt for Joint 5 605.652
+sumROt for Joint 8 1386.675
+sumROt for Joint 9 176.6479
+sumROt for Joint 12 674.5719
+sumROt for Joint 13 343.9886
+sumROt for Joint 16 445.61
+sumROt for Joint 17 81.28001
+avg sumerror 8.999319
+total minute 0.0691735433333333
+total second 4.1504126
+end time is 4/3/2018 11:40:54 AM
+iteration is 5
+start time 4/3/2018 11:47:52 AM
+total generation6
+best fitness0.09035169
+best gene is 4 0 5 1 0 2 9 2 3 5 
+best cost is 0.09035169
+total duration 9
+Adjacent Variation cost0
+Rot cost0.09022333
+Rot cost * weight0.09022333
+cm cost0.0002567172
+cm cost * weight0.0001283586
+sumROt for Joint 0 225.4451
+sumROt for Joint 1 68.23912
+sumROt for Joint 4 567.4796
+sumROt for Joint 5 584.5836
+sumROt for Joint 8 1007.647
+sumROt for Joint 9 201.1016
+sumROt for Joint 12 573.1581
+sumROt for Joint 13 285.6676
+sumROt for Joint 16 438.6519
+sumROt for Joint 17 87.7855
+
+avg sumerror 77.4881
+total minute 0.000860163333333333
+total second 0.0516098
+end time is 4/3/2018 11:47:52 AM
+iteration is 5
+start time 4/3/2018 11:49:14 AM
+total generation6
+best fitness0.002800858
+best gene is 1 5 1 0 6 1 2 1 2 0 
+best cost is 0.002800858
+total duration 9
+Adjacent Variation cost0
+Rot cost0.00275377
+Rot cost * weight0.00275377
+cm cost9.417534E-05
+cm cost * weight4.708767E-05
+sumROt for Joint 0 227.315
+sumROt for Joint 1 42.67744
+sumROt for Joint 4 507.7714
+sumROt for Joint 5 605.6436
+sumROt for Joint 8 1308.139
+sumROt for Joint 9 162.0024
+sumROt for Joint 12 674.572
+sumROt for Joint 13 343.9886
+sumROt for Joint 16 445.6101
+sumROt for Joint 17 81.28001
+
+avg sumerror 16.8584
+total minute 0.0689820566666667
+total second 4.1389234
+end time is 4/3/2018 11:49:18 AM
+iteration is 5
+start time 4/3/2018 11:55:30 AM
+total generation6
+best fitness0.009504056
+best gene is 2 4 6 7 0 8 3 0 5 3 
+best cost is 0.009504056
+total duration 9
+Adjacent Variation cost0
+Rot cost0.008855855
+Rot cost * weight0.008855855
+cm cost0.001296401
+cm cost * weight0.0006482005
+sumROt for Joint 0 230.9023
+sumROt for Joint 1 152.3363
+sumROt for Joint 4 1011.434
+sumROt for Joint 5 270.8597
+sumROt for Joint 8 951.3962
+sumROt for Joint 9 365.012
+sumROt for Joint 12 356.007
+sumROt for Joint 13 135.5578
+sumROt for Joint 16 415.9318
+sumROt for Joint 17 194.9712
+
+avg sumerror 29.71166
+total minute 0.069170875
+total second 4.1502525
+end time is 4/3/2018 11:55:34 AM
+pop size 2000
+iteration is 5
+start time 4/3/2018 1:34:41 PM
+total generation6
+best fitness0.007261604
+best gene is 0 3 4 6 8 7 5 1 7 2 
+best cost is 0.007261604
+total duration 9
+Adjacent Variation cost0
+Rot cost0.004940242
+Rot cost * weight0.004940242
+cm cost0.004642725
+cm cost * weight0.002321362
+sumROt for Joint 0 230.89
+sumROt for Joint 1 171.0363
+sumROt for Joint 4 1017.014
+sumROt for Joint 5 279.0096
+sumROt for Joint 8 1006.324
+sumROt for Joint 9 386.6725
+sumROt for Joint 12 374.4556
+sumROt for Joint 13 140.0762
+sumROt for Joint 16 397.5601
+sumROt for Joint 17 190.4536
+
+avg sumerror 22.52398
+total minute 0.0704067516666667
+total second 4.2244051
+end time is 4/3/2018 1:34:45 PM
+iteration is 5
+start time 4/3/2018 2:58:34 PM
+total generation6
+best fitness0.01173216
+best gene is 7 5 3 9 3 4 6 8 7 2 
+best cost is 0.01173216
+total duration 9
+Adjacent Variation cost0
+Rot cost0.009910489
+Rot cost * weight0.009910489
+cm cost0.003643334
+cm cost * weight0.001821667
+sumROt for Joint 0 230.89
+sumROt for Joint 1 183.7953
+sumROt for Joint 4 858.7906
+sumROt for Joint 5 245.5086
+sumROt for Joint 8 1171.076
+sumROt for Joint 9 432.0435
+sumROt for Joint 12 374.4556
+sumROt for Joint 13 140.0762
+sumROt for Joint 16 397.5601
+sumROt for Joint 17 190.4536
+
+avg sumerror 26.3067
+total minute 0.071336755
+total second 4.2802053
+end time is 4/3/2018 2:58:38 PM
+iteration is 5
+start time 4/3/2018 3:00:52 PM
+total generation6
+best fitness0.01256723
+best gene is 3 6 4 1 3 5 7 3 8 2 
+best cost is 0.01256723
+total duration 9
+Adjacent Variation cost0
+Rot cost0.01041548
+Rot cost * weight0.01041548
+cm cost0.004303515
+cm cost * weight0.002151757
+sumROt for Joint 0 225.0809
+sumROt for Joint 1 163.6262
+sumROt for Joint 4 1043.104
+sumROt for Joint 5 279.1135
+sumROt for Joint 8 903.1593
+sumROt for Joint 9 386.6051
+sumROt for Joint 12 370.0122
+sumROt for Joint 13 140.1239
+sumROt for Joint 16 411.5291
+sumROt for Joint 17 195.0338
+
+avg sumerror 33.39552
+total minute 0.0701168933333333
+total second 4.2070136
+end time is 4/3/2018 3:00:56 PM
+iteration is 5
+start time 4/3/2018 3:05:09 PM
+total generation6
+best fitness0.006331789
+best gene is 3 9 6 4 3 7 5 3 8 2 
+best cost is 0.006331789
+total duration 9
+Adjacent Variation cost0
+Rot cost0.006145853
+Rot cost * weight0.006145853
+cm cost0.0003718734
+cm cost * weight0.0001859367
+sumROt for Joint 0 225.0809
+sumROt for Joint 1 184.1948
+sumROt for Joint 4 962.1721
+sumROt for Joint 5 263.9103
+sumROt for Joint 8 951.4494
+sumROt for Joint 9 406.9466
+sumROt for Joint 12 370.0122
+sumROt for Joint 13 140.1239
+sumROt for Joint 16 411.5291
+sumROt for Joint 17 195.0338
+
+avg sumerror 23.776
+total minute 0.14922252
+total second 8.9533512
+end time is 4/3/2018 3:05:18 PM
+iteration is 5
+start time 4/3/2018 3:09:25 PM
+total generation6
+best fitness0.0787213
+best gene is 7 8 7 0 6 7 5 0 5 4 
+best cost is 0.0787213
+total duration 9
+Adjacent Variation cost0
+Rot cost0.05544762
+Rot cost * weight0.05544762
+cm cost0.04654735
+cm cost * weight0.02327368
+sumROt for Joint 0 231.3065
+sumROt for Joint 1 148.2477
+sumROt for Joint 4 914.1572
+sumROt for Joint 5 300.3608
+sumROt for Joint 8 721.5079
+sumROt for Joint 9 386.2861
+sumROt for Joint 12 465.9457
+sumROt for Joint 13 114.0659
+sumROt for Joint 16 515.5786
+sumROt for Joint 17 202.2278
+
+avg sumerror 65.84852
+total minute 0.000985953333333333
+total second 0.0591572
+end time is 4/3/2018 3:09:25 PM
+iteration is 5
+start time 4/3/2018 3:11:00 PM
+total generation6
+best fitness0.05765437
+best gene is 5 3 7 2 4 0 7 4 8 9 
+best cost is 0.05765437
+total duration 9
+Adjacent Variation cost0
+Rot cost0.04398256
+Rot cost * weight0.04398256
+cm cost0.02734363
+cm cost * weight0.01367182
+sumROt for Joint 0 194.3006
+sumROt for Joint 1 148.2668
+sumROt for Joint 4 962.8179
+sumROt for Joint 5 382.373
+sumROt for Joint 8 1012.587
+sumROt for Joint 9 379.9427
+sumROt for Joint 12 378.0742
+sumROt for Joint 13 162.8215
+sumROt for Joint 16 459.0359
+sumROt for Joint 17 207.9092
+
+avg sumerror 37.4663
+total minute 0.000885906666666667
+total second 0.0531544
+end time is 4/3/2018 3:11:00 PM
+iteration is 5
+start time 4/3/2018 3:17:37 PM
+total generation6
+best fitness0.006256151
+best gene is 2 7 5 8 6 4 3 5 0 7 
+best cost is 0.006256151
+total duration 9
+Adjacent Variation cost0
+Rot cost0.006232041
+Rot cost * weight0.006232041
+cm cost4.822016E-05
+cm cost * weight2.411008E-05
+sumROt for Joint 0 249.5968
+sumROt for Joint 1 161.5829
+sumROt for Joint 4 937.6667
+sumROt for Joint 5 291.0352
+sumROt for Joint 8 1025.166
+sumROt for Joint 9 407.8188
+sumROt for Joint 12 391.3249
+sumROt for Joint 13 140.0751
+sumROt for Joint 16 406.8167
+sumROt for Joint 17 190.4784
+
+avg sumerror 19.45938
+total minute 0.0758024666666667
+total second 4.548148
+end time is 4/3/2018 3:17:41 PM
+iteration is 5
+start time 4/3/2018 3:18:16 PM
+total generation6
+best fitness0.0235648
+best gene is 6 8 7 0 6 3 7 5 1 4 
+best cost is 0.0235648
+total duration 9
+Adjacent Variation cost0
+Rot cost0.01599933
+Rot cost * weight0.01599933
+cm cost0.01513094
+cm cost * weight0.007565469
+sumROt for Joint 0 218.8432
+sumROt for Joint 1 155.5057
+sumROt for Joint 4 879.4449
+sumROt for Joint 5 230.9947
+sumROt for Joint 8 1027.454
+sumROt for Joint 9 378.4539
+sumROt for Joint 12 434.398
+sumROt for Joint 13 124.6843
+sumROt for Joint 16 436.0415
+sumROt for Joint 17 186.7192
+
+avg sumerror 23.32666
+total minute 0.0774845316666667
+total second 4.6490719
+end time is 4/3/2018 3:18:21 PM
+iteration is 5
+start time 4/3/2018 3:19:32 PM
+total generation6
+best fitness0.0178596
+best gene is 4 8 6 7 9 3 4 3 5 2 
+best cost is 0.0178596
+total duration 9
+Adjacent Variation cost0
+Rot cost0.01662924
+Rot cost * weight0.01662924
+cm cost0.002460718
+cm cost * weight0.001230359
+sumROt for Joint 0 188.7708
+sumROt for Joint 1 187.6516
+sumROt for Joint 4 893.7216
+sumROt for Joint 5 250.1487
+sumROt for Joint 8 1157.491
+sumROt for Joint 9 406.7569
+sumROt for Joint 12 403.3929
+sumROt for Joint 13 158.0241
+sumROt for Joint 16 402.1064
+sumROt for Joint 17 184.1396
+
+avg sumerror 26.80249
+total minute 0.076314475
+total second 4.5788685
+end time is 4/3/2018 3:19:36 PM
+start time 4/3/2018 3:20:06 PM
+total generation6
+best fitness0.01855176
+best gene is 4 6 2 4 3 4 8 4 3 0 
+best cost is 0.01855176
+total duration 9
+Adjacent Variation cost0
+Rot cost0.01468208
+Rot cost * weight0.01468208
+cm cost0.007739365
+cm cost * weight0.003869683
+sumROt for Joint 0 215.1766
+sumROt for Joint 1 192.1029
+sumROt for Joint 4 883.491
+sumROt for Joint 5 277.9526
+sumROt for Joint 8 937.4023
+sumROt for Joint 9 377.1259
+sumROt for Joint 12 314.1265
+sumROt for Joint 13 149.4592
+sumROt for Joint 16 426.5237
+sumROt for Joint 17 216.1752
+
+avg sumerror 28.20638
+total minute 0.0769334883333333
+total second 4.6160093
+end time is 4/3/2018 3:20:11 PM
+start time 4/3/2018 3:22:00 PM
+total generation6
+best fitness0.005676436
+best gene is 7 9 7 5 3 4 6 3 8 2 
+best cost is 0.005676436
+total duration 9
+Adjacent Variation cost0
+Rot cost0.004091251
+Rot cost * weight0.004091251
+cm cost0.003170371
+cm cost * weight0.001585186
+sumROt for Joint 0 225.0602
+sumROt for Joint 1 162.1207
+sumROt for Joint 4 985.542
+sumROt for Joint 5 278.3127
+sumROt for Joint 8 1163.01
+sumROt for Joint 9 374.5954
+sumROt for Joint 12 370.0119
+sumROt for Joint 13 140.1319
+sumROt for Joint 16 411.567
+sumROt for Joint 17 195.0259
+
+avg sumerror 20.32709
+total minute 0.075992125
+total second 4.5595275
+end time is 4/3/2018 3:22:04 PM
+iteration is 10
+start time 4/3/2018 3:23:01 PM
+total generation11
+best fitness0.002409083
+best gene is 7 5 7 9 8 6 4 3 7 2 
+best cost is 0.002409083
+total duration 9
+Adjacent Variation cost0
+Rot cost0.002298039
+Rot cost * weight0.002298039
+cm cost0.0002220869
+cm cost * weight0.0001110435
+sumROt for Joint 0 230.8864
+sumROt for Joint 1 184.2367
+sumROt for Joint 4 930.4119
+sumROt for Joint 5 279.189
+sumROt for Joint 8 1070.118
+sumROt for Joint 9 387.5884
+sumROt for Joint 12 374.4731
+sumROt for Joint 13 140.0692
+sumROt for Joint 16 397.5103
+sumROt for Joint 17 190.4784
+
+avg sumerror 9.239581
+total minute 0.141277885
+total second 8.4766731
+end time is 4/3/2018 3:23:09 PM
+iteration is 10
+iteration is 20
+iteration is 30
+iteration is 40
+iteration is 50
+iteration is 60
+iteration is 70
+iteration is 80
+iteration is 90
+iteration is 100
+start time 4/3/2018 3:24:36 PM
+total generation101
+best fitness0.008984136
+best gene is 5 1 9 3 8 6 7 3 4 2 
+best cost is 0.008984136
+total duration 9
+Adjacent Variation cost0
+Rot cost0.00799613
+Rot cost * weight0.00799613
+cm cost0.001976013
+cm cost * weight0.0009880066
+sumROt for Joint 0 195.4448
+sumROt for Joint 1 173.5107
+sumROt for Joint 4 831.0984
+sumROt for Joint 5 255.0697
+sumROt for Joint 8 1068.125
+sumROt for Joint 9 368.8788
+sumROt for Joint 12 341.0565
+sumROt for Joint 13 140.0958
+sumROt for Joint 16 382.5835
+sumROt for Joint 17 195.0173
+
+avg sumerror 18.69481
+total minute 1.29826903
+total second 77.8961418
+end time is 4/3/2018 3:25:54 PM
+iteration is 10
+iteration is 20
+iteration is 30
+iteration is 40
+iteration is 50
+iteration is 60
+iteration is 70
+iteration is 80
+iteration is 90
+iteration is 100
+start time 4/3/2018 3:34:59 PM
+total generation101
+best fitness0.008298183
+best gene is 2 8 6 1 4 3 7 9 5 3 
+best cost is 0.008298183
+total duration 9
+Adjacent Variation cost0
+Rot cost0.005762094
+Rot cost * weight0.005762094
+cm cost0.005072176
+cm cost * weight0.002536088
+sumROt for Joint 0 219.4264
+sumROt for Joint 1 157.546
+sumROt for Joint 4 847.1886
+sumROt for Joint 5 294.277
+sumROt for Joint 8 962.4732
+sumROt for Joint 9 395.9506
+sumROt for Joint 12 384.8792
+sumROt for Joint 13 144.68
+sumROt for Joint 16 408.0035
+sumROt for Joint 17 195.0669
+
+avg sumerror 23.29483
+total minute 1.39293705833333
+total second 83.5762235
+end time is 4/3/2018 3:36:23 PM
+iteration is 10
+iteration is 20
+start time 4/3/2018 4:13:20 PM
+total generation21
+best fitness0.007895124
+best gene is 5 8 6 4 3 1 5 7 6 2 
+best cost is 0.007895124
+total duration 9
+Adjacent Variation cost0
+Rot cost0.004640323
+Rot cost * weight0.004640323
+cm cost0.006509602
+cm cost * weight0.003254801
+sumROt for Joint 0 236.3525
+sumROt for Joint 1 167.6118
+sumROt for Joint 4 907.4143
+sumROt for Joint 5 277.3193
+sumROt for Joint 8 925.9218
+sumROt for Joint 9 379.5744
+sumROt for Joint 12 376.2276
+sumROt for Joint 13 139.8214
+sumROt for Joint 16 392.1165
+sumROt for Joint 17 192.8947
+
+avg sumerror 19.97928
+total minute 0.271299953333333
+total second 16.2779972
+end time is 4/3/2018 4:13:36 PM
+iteration is 10
+iteration is 20
+iteration is 30
+iteration is 40
+iteration is 50
+start time 4/3/2018 4:15:14 PM
+total generation51
+best fitness0.01208897
+best gene is 2 0 3 7 6 4 8 5 3 4 
+best cost is 0.01208897
+total duration 9
+Adjacent Variation cost0
+Rot cost0.01174183
+Rot cost * weight0.01174183
+cm cost0.0006942749
+cm cost * weight0.0003471375
+sumROt for Joint 0 194.3984
+sumROt for Joint 1 184.2828
+sumROt for Joint 4 957.5933
+sumROt for Joint 5 269.0805
+sumROt for Joint 8 963.2801
+sumROt for Joint 9 390.4116
+sumROt for Joint 12 396.0716
+sumROt for Joint 13 153.4823
+sumROt for Joint 16 398.0871
+sumROt for Joint 17 184.0963
+
+avg sumerror 29.24568
+total minute 0.643914151666667
+total second 38.6348491
+end time is 4/3/2018 4:15:53 PM
+iteration is 10
+iteration is 20
+iteration is 30
+iteration is 40
+iteration is 50
+start time 4/3/2018 10:16:30 PM
+total generation51
+best fitness0.01936881
+best gene is 7 5 3 7 4 7 0 6 8 6 
+best cost is 0.01936881
+total duration 9
+Adjacent Variation cost0
+Rot cost0.01808841
+Rot cost * weight0.01808841
+cm cost0.002560794
+cm cost * weight0.001280397
+sumROt for Joint 0 230.8663
+sumROt for Joint 1 159.8442
+sumROt for Joint 4 1069.855
+sumROt for Joint 5 248.4699
+sumROt for Joint 8 1006.726
+sumROt for Joint 9 369.8259
+sumROt for Joint 12 385.2249
+sumROt for Joint 13 113.6891
+sumROt for Joint 16 399.9111
+sumROt for Joint 17 192.8378
+
+avg sumerror 34.27428
+total minute 0.671493668333333
+total second 40.2896201
+end time is 4/3/2018 10:17:10 PM
+iteration is 10
+iteration is 20
+iteration is 30
+iteration is 40
+iteration is 50
+start time 4/3/2018 10:18:12 PM
+total generation51
+best fitness0.01060736
+best gene is 2 7 3 5 1 3 4 6 8 7 
+best cost is 0.01060736
+total duration 9
+Adjacent Variation cost0
+Rot cost0.009722769
+Rot cost * weight0.009722769
+cm cost0.001769185
+cm cost * weight0.0008845925
+sumROt for Joint 0 230.8899
+sumROt for Joint 1 190.0756
+sumROt for Joint 4 890.699
+sumROt for Joint 5 254.8014
+sumROt for Joint 8 913.9572
+sumROt for Joint 9 411.6101
+sumROt for Joint 12 374.4611
+sumROt for Joint 13 140.0821
+sumROt for Joint 16 397.5714
+sumROt for Joint 17 190.4536
+
+avg sumerror 25.96936
+total minute 0.671265745
+total second 40.2759447
+end time is 4/3/2018 10:18:52 PM
+iteration is 10
+iteration is 20
+iteration is 30
+iteration is 40
+iteration is 50
+start time 4/3/2018 10:22:20 PM
+total generation51
+best fitness0.002407104
+best gene is 7 3 4 6 8 9 7 5 7 2 
+best cost is 0.002407104
+total duration 9
+Adjacent Variation cost0
+Rot cost0.00229606
+Rot cost * weight0.00229606
+cm cost0.0002220869
+cm cost * weight0.0001110435
+sumROt for Joint 0 230.89
+sumROt for Joint 1 184.2194
+sumROt for Joint 4 930.4351
+sumROt for Joint 5 279.272
+sumROt for Joint 8 1070.092
+sumROt for Joint 9 387.5581
+sumROt for Joint 12 374.4556
+sumROt for Joint 13 140.0762
+sumROt for Joint 16 397.5601
+sumROt for Joint 17 190.4536
+
+avg sumerror 9.238228
+total minute 7.34257493666667
+total second 440.5544962
+end time is 4/3/2018 10:29:41 PM
+iteration is 10
+iteration is 20
+iteration is 30
+iteration is 40
+iteration is 50
+start time 4/3/2018 10:33:29 PM
+total generation51
+best fitness0.004548216
+best gene is 2 4 3 7 6 8 1 5 7 9 
+best cost is 0.004548216
+total duration 9
+Adjacent Variation cost0
+Rot cost0.004541778
+Rot cost * weight0.004541778
+cm cost1.28746E-05
+cm cost * weight6.437302E-06
+sumROt for Joint 0 225.2987
+sumROt for Joint 1 175.1966
+sumROt for Joint 4 784.9803
+sumROt for Joint 5 297.1209
+sumROt for Joint 8 1071.227
+sumROt for Joint 9 379.8498
+sumROt for Joint 12 370.865
+sumROt for Joint 13 140.0967
+sumROt for Joint 16 412.39
+sumROt for Joint 17 195.0013
+
+avg sumerror 14.17081
+total minute 1.79272553666667
+total second 107.5635322
+end time is 4/3/2018 10:35:17 PM
+iteration is 10
+iteration is 20
+iteration is 30
+iteration is 40
+iteration is 50
+start time 4/4/2018 7:19:06 PM
+total generation51
+best fitness0.004201245
+best gene is 9 7 9 6 4 3 5 3 8 2 
+best cost is 0.004201245
+total duration 9
+Adjacent Variation cost0
+Rot cost0.002841961
+Rot cost * weight0.002841961
+cm cost0.002718568
+cm cost * weight0.001359284
+sumROt for Joint 0 225.0809
+sumROt for Joint 1 165.0613
+sumROt for Joint 4 985.7693
+sumROt for Joint 5 259.4829
+sumROt for Joint 8 1075.577
+sumROt for Joint 9 373.2976
+sumROt for Joint 12 370.0122
+sumROt for Joint 13 140.1239
+sumROt for Joint 16 411.5291
+sumROt for Joint 17 195.0338
+
+avg sumerror 12.52262
+total minute 10.176060965
+total second 610.5636579
+end time is 4/4/2018 7:29:16 PM
+iteration is 10
+start time 4/4/2018 7:30:13 PM
+total generation11
+best fitness0.002742374
+best gene is 2 4 1 6 8 3 5 7 3 0 
+best cost is 0.002742374
+total duration 9
+Adjacent Variation cost0
+Rot cost0.002726608
+Rot cost * weight0.002726608
+cm cost3.153086E-05
+cm cost * weight1.576543E-05
+sumROt for Joint 0 225.2987
+sumROt for Joint 1 171.4759
+sumROt for Joint 4 984.1461
+sumROt for Joint 5 291.3947
+sumROt for Joint 8 1063.858
+sumROt for Joint 9 378.7661
+sumROt for Joint 12 370.865
+sumROt for Joint 13 140.0967
+sumROt for Joint 16 412.39
+sumROt for Joint 17 195.0013
+
+avg sumerror 11.18959
+total minute 2.12928955666667
+total second 127.7573734
+end time is 4/4/2018 7:32:21 PM
+iteration is 10
+start time 4/4/2018 7:32:59 PM
+total generation11
+best fitness0.00530042
+best gene is 2 7 0 4 6 8 4 3 5 7 
+best cost is 0.00530042
+total duration 9
+Adjacent Variation cost0
+Rot cost0.00517841
+Rot cost * weight0.00517841
+cm cost0.0002440214
+cm cost * weight0.0001220107
+sumROt for Joint 0 247.3868
+sumROt for Joint 1 174.4075
+sumROt for Joint 4 966.5128
+sumROt for Joint 5 255.172
+sumROt for Joint 8 1032.428
+sumROt for Joint 9 374.8246
+sumROt for Joint 12 389.6545
+sumROt for Joint 13 142.4984
+sumROt for Joint 16 412.3183
+sumROt for Joint 17 190.2317
+
+avg sumerror 18.2701
+total minute 3.60778491833333
+total second 216.4670951
+end time is 4/4/2018 7:36:35 PM
+iteration is 10
+start time 4/4/2018 7:39:12 PM
+total generation11
+best fitness0.001767403
+best gene is 0 6 8 3 9 7 5 3 4 2 
+best cost is 0.001767403
+total duration 9
+Adjacent Variation cost0
+Rot cost0.0004315436
+Rot cost * weight0.0004315436
+cm cost0.002671719
+cm cost * weight0.001335859
+sumROt for Joint 0 225.2946
+sumROt for Joint 1 169.9673
+sumROt for Joint 4 894.5898
+sumROt for Joint 5 273.0973
+sumROt for Joint 8 1110.055
+sumROt for Joint 9 388.5929
+sumROt for Joint 12 370.857
+sumROt for Joint 13 140.095
+sumROt for Joint 16 412.4129
+sumROt for Joint 17 195.0005
+
+avg sumerror 5.352719
+total minute 0.727080308333333
+total second 43.6248185
+end time is 4/4/2018 7:39:55 PM
+iteration is 10
+iteration is 20
+iteration is 30
+iteration is 40
+start time 4/4/2018 7:42:36 PM
+total generation41
+best fitness0.01148026
+best gene is 2 4 3 7 0 8 6 7 0 5 
+best cost is 0.01148026
+total duration 9
+Adjacent Variation cost0
+Rot cost0.01133044
+Rot cost * weight0.01133044
+cm cost0.0002996325
+cm cost * weight0.0001498163
+sumROt for Joint 0 195.4438
+sumROt for Joint 1 173.533
+sumROt for Joint 4 917.5085
+sumROt for Joint 5 300.4651
+sumROt for Joint 8 929.0331
+sumROt for Joint 9 366.8334
+sumROt for Joint 12 341.0645
+sumROt for Joint 13 140.0975
+sumROt for Joint 16 382.5605
+sumROt for Joint 17 195.0182
+
+avg sumerror 29.26222
+total minute 2.682489605
+total second 160.9493763
+end time is 4/4/2018 7:45:17 PM
+iteration is 10
+iteration is 20
+iteration is 30
+iteration is 40
+start time 4/4/2018 8:50:25 PM
+total generation41
+best fitness0.1620563
+best gene is 5 1 2 1 8 6 7 2 7 5 
+best cost is 0.1620563
+total duration 9
+Adjacent Variation cost0
+Rot cost0.159907
+Rot cost * weight0.159907
+cm cost0.004298508
+cm cost * weight0.002149254
+sumROt for Joint 0 259.8249
+sumROt for Joint 1 110.5478
+sumROt for Joint 4 863.9913
+sumROt for Joint 5 572.8469
+sumROt for Joint 8 1310.836
+sumROt for Joint 9 372.2383
+sumROt for Joint 12 681.8369
+sumROt for Joint 13 343.4281
+sumROt for Joint 16 517.452
+sumROt for Joint 17 185.991
+
+avg sumerror 323.2044
+total minute 2.66568996166667
+total second 159.9413977
+end time is 4/4/2018 8:53:05 PM
+iteration is 10
+iteration is 20
+iteration is 30
+iteration is 40
+start time 4/4/2018 9:57:10 PM
+total generation41
+best fitness0.1651052
+best gene is 7 6 3 5 1 5 8 2 7 2 
+best cost is 0.1651052
+total duration 9
+Adjacent Variation cost0
+Rot cost0.1638305
+Rot cost * weight0.1638305
+cm cost0.002549529
+cm cost * weight0.001274765
+sumROt for Joint 0 246.6511
+sumROt for Joint 1 122.6793
+sumROt for Joint 4 784.6263
+sumROt for Joint 5 473.6835
+sumROt for Joint 8 1340.225
+sumROt for Joint 9 439.7609
+sumROt for Joint 12 590.3605
+sumROt for Joint 13 275.8393
+sumROt for Joint 16 478.3984
+sumROt for Joint 17 177.7787
+
+avg sumerror 329.7374
+total minute 1.316415275
+total second 78.9849165
+end time is 4/4/2018 9:58:29 PM
+iteration is 10
+iteration is 20
+iteration is 30
+iteration is 40
+start time 4/4/2018 10:00:44 PM
+total generation41
+best fitness0.1532817
+best gene is 1 6 3 6 8 2 7 2 7 2 
+best cost is 0.1532817
+total duration 9
+Adjacent Variation cost0
+Rot cost0.1505565
+Rot cost * weight0.1505565
+cm cost0.005450547
+cm cost * weight0.002725273
+sumROt for Joint 0 264.1626
+sumROt for Joint 1 123.9022
+sumROt for Joint 4 799.1599
+sumROt for Joint 5 547.465
+sumROt for Joint 8 1273.665
+sumROt for Joint 9 370.8671
+sumROt for Joint 12 803.6374
+sumROt for Joint 13 458.4499
+sumROt for Joint 16 534.8554
+sumROt for Joint 17 202.9102
+
+avg sumerror 298.0289
+total minute 1.83702855666667
+total second 110.2217134
+end time is 4/4/2018 10:02:34 PM
